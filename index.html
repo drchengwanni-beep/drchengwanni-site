@@ -164,7 +164,8 @@ section{padding:56px 0;border-top:1px solid var(--line)}
 .tlscans img{width:100%;display:block;border:1px solid #ddd;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.08);background:#fff}
 .tlscans figcaption{font-size:13px;color:var(--muted);margin-top:6px}
 .tlscans .lead{grid-column:1/-1;font-size:14px;font-weight:600;margin:0}
-@media(max-width:640px){.tlscans{grid-template-columns:1fr}}
+.tlscans.thumbs{grid-template-columns:repeat(auto-fill,150px);max-width:none}.tlscans.thumbs img{height:200px;object-fit:cover;object-position:top}.tlscans.thumbs figcaption{font-size:12px}
+@media(max-width:640px){.tlscans{grid-template-columns:1fr}.tlscans.thumbs{grid-template-columns:repeat(auto-fill,130px)}}
 
 .list3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .list3 h3{font-size:17px;margin:0 0 8px}
@@ -456,8 +457,8 @@ nav{position:sticky;top:0;z-index:20;background:var(--paper)}
       <li><span class="yr">2015</span><h4>出任新加坡华文教研中心学前部主任</h4><p>受聘为新加坡华文教研中心学前部主任兼高级讲师，主持学前部的课程创新、师资专业发展与学前华文教育研究。面对不同的语言政策与学前体制，她将台湾的专业重新置于新加坡的语境中检视，并以学前华文教师的跨文化调适为题展开研究；此一经验成为日后推动学前华文教育在地化的起点。</p></li>
       <li><span class="yr">2016</span><h4>提出“新任幼儿华文教师在地化培训课程”</h4><p>撰写并向幼儿培育署（ECDA）提出课程方案，首次把“文化调适”带进新加坡学前华文师资培训。</p></li>
       <li><span class="yr">2016 起</span><h4>节庆教学的系统化</h4><p>以《来！来过节》为起点，为新加坡各族群的节日编写学前教案、评量与教学资源，率先将学前节庆教学系统化，并由课室教案延伸至全园活动企划。</p><figure class="tlphoto"><img src="img/press/2016-06-festival-launch.jpg" alt="《来！来过节》发布会" loading="lazy"><figcaption>2016.06　《来！来过节》新加坡学前节庆教案暨教材发布会，由教育部兼贸工部高级政务次长刘燕玲主持（图：新加坡华文教研中心）</figcaption></figure><div class="tlscans"><p class="lead">当年媒体报导（点图看大图）</p><figure><a href="img/press/2016-06-zb-page.jpg" target="_blank" rel="noopener"><img src="img/press/2016-06-zb-page.jpg" alt="《联合早报》2016年6月19日版面" loading="lazy"></a><figcaption>《联合早报》2016.06.19〈让孩童了解各族节庆拉近距离〉，文中介绍郑婉妮博士为《来！来过节》作者之一</figcaption></figure><figure><a href="img/press/2016-06-st-page.jpg" target="_blank" rel="noopener"><img src="img/press/2016-06-st-page.jpg" alt="The Straits Times 2016 clipping" loading="lazy"></a><figcaption>The Straits Times 2016.06.19〈Teaching kids Chinese through local culture〉</figcaption></figure></div></li>
-      <li><span class="yr">2018 起</span><h4>创办学前华文教具比赛</h4><p>每届一个主题：生活材料、桌游、故事板、本地华语绘本、绘本×桌游。每一届整理成书，累积在地的教学资源。</p><div class="tlscans"><p class="lead">第一届比赛的新闻（点图看大图）</p><figure><a href="img/press/2018-03-zaobao.jpg" target="_blank" rel="noopener"><img src="img/press/2018-03-zaobao.jpg" alt="《联合早报》2018年3月首届幼儿华文教具制作比赛报导" loading="lazy"></a><figcaption>《联合早报》2018.03〈幼儿华文教具制作比赛　日常生活材料可派上用场〉，郑婉妮博士示范如何以有趣的方式教字</figcaption></figure></div></li>
-      <li><span class="yr">2019 起</span><h4>以原创绘本深耕在地化</h4><p>自《烟囱在哪里呀？》起，每年推出一本以新加坡为场景的圣诞绘本，并主持新小瓜儿童绘本系列与李光耀双语基金支持的 5E 绘本系列，把组屋、红头巾与本地华语写进孩子的阅读经验；多本入选国家图书馆管理局推荐书单。</p><div class="tlscans"><p class="lead">当年媒体报导（点图看大图）</p><figure><a href="img/press/2019-12-chimney.jpg" target="_blank" rel="noopener"><img src="img/press/2019-12-chimney.jpg" alt="《联合早报》2019年12月《烟囱在哪里呀？》报导" loading="lazy"></a><figcaption>《联合早报》2019.12〈圣诞老人组屋送礼奇遇记　编成富本地特色华文绘本孩童更着迷〉</figcaption></figure></div></li>
+      <li><span class="yr">2018 起</span><h4>创办学前华文教具比赛</h4><p>每届一个主题：生活材料、桌游、故事板、本地华语绘本、绘本×桌游。每一届整理成书，累积在地的教学资源。</p><div class="tlscans thumbs"><p class="lead">第一届比赛的新闻（点图看大图）</p><figure><a href="img/press/2018-03-zaobao.jpg" target="_blank" rel="noopener"><img src="img/press/2018-03-zaobao.jpg" alt="《联合早报》2018年3月首届幼儿华文教具制作比赛报导" loading="lazy"></a><figcaption>《联合早报》2018.03〈幼儿华文教具制作比赛　日常生活材料可派上用场〉，郑婉妮博士示范如何以有趣的方式教字</figcaption></figure></div></li>
+      <li><span class="yr">2019 起</span><h4>以原创绘本深耕在地化</h4><p>自《烟囱在哪里呀？》起，每年推出一本以新加坡为场景的圣诞绘本，并主持新小瓜儿童绘本系列与李光耀双语基金支持的 5E 绘本系列，把组屋、红头巾与本地华语写进孩子的阅读经验；多本入选国家图书馆管理局推荐书单。</p><div class="tlscans thumbs"><p class="lead">媒体报导（点图看大图）</p><figure><a href="img/press/2023-06-16-zbnow.jpg" target="_blank" rel="noopener"><img src="img/press/2023-06-16-zbnow.jpg" alt="《联合早报·现在》2023年6月16日〈发挥设计巧思　说好绘本故事〉" loading="lazy"></a><figcaption>《联合早报·现在》2023.06.16〈发挥设计巧思　说好绘本故事〉</figcaption></figure></div></li>
       <li><span class="yr">持续</span><h4>政策跟进与专业咨询</h4><p>长期追踪新加坡学前教育与母语教育政策的发展，包括幼儿培育署的课程框架与融合教育政策，并将之转化为师资培训、课程与教材；曾任国家图书馆管理局华文咨询委员（2020–2024），亦持续受政府机构、出版社与媒体咨询，就幼儿教育与华文学习议题提供专业意见。</p></li>
       <li><span class="yr">持续</span><h4>学位课程建构与著述</h4><p>参与建构新跃社科大学幼儿教育与华文教育学士课程（BECCE）的课程架构，并督导由中心承担的课程，历年所有课程教材均经她审阅；亲自撰写儿童文学、社交情绪、多元文化与双语教育等大学教材，2027 年推出全新改写的《学前特殊儿童教育》。十年间出版三十余本绘本、教学专书与大学教材，著述未曾间断。</p></li>
       <li><span class="yr">持续</span><h4>走进社区</h4><p>带领郑小瓜故事团走进图书馆、学校与社区，并为资源较少的家庭提供公益工作坊，以绘本、说故事与语言游戏陪伴孩子与家长。</p></li>
@@ -572,40 +573,40 @@ nav{position:sticky;top:0;z-index:20;background:var(--paper)}
       <div>
         <h3>新闻报道</h3>
         <ul class="tl">
-          <li><time>2026.09</time><a href="img/press/2026-09-09-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈李智陞：华文教学要善用AI但教师不能被取代〉（《绘芽集》发布仪式）</a></li>
-          <li><time>2026.09</time><a href="img/press/2026-09-st.jpg" target="_blank" rel="noopener">The Straits Times〈Confusing ‘mum’ for ‘horse’: New book helps Chinese language teachers tackle common errors by pupils〉</a></li>
+          <li><time>2026.09</time><a href="https://www.zaobao.com.sg/news/singapore/story20260908-9640314" target="_blank" rel="noopener">《联合早报》〈李智陞：华文教师须善用科技打造生动学习　但AI绝不能取代教师〉（《绘芽集》发布仪式）</a></li>
+          <li><time>2026.09</time><a href="https://www.straitstimes.com/singapore/parenting-education/confusing-mum-for-horse-new-book-helps-chinese-teachers-tackle-common-mistakes-by-pupils" target="_blank" rel="noopener">The Straits Times〈Confusing ‘mum’ for ‘horse’: New book helps Chinese language teachers tackle common errors by pupils〉</a></li>
           <li><time>2026.03</time><a href="https://www.8world.com/singapore/sccl-national-preschool-teaching-aid-competition-3099636" target="_blank" rel="noopener">8world〈将华文绘本变为桌游　四教师团队“寓教于乐”获奖〉</a></li>
-          <li><time>2025.12</time><a href="img/press/2025-12-8world-pipi.jpg" target="_blank" rel="noopener">8world〈新加坡华文教研中心推出新绘本《我要我的屁屁驯鹿》〉</a></li>
-          <li><time>2025.11</time><a href="img/press/2025-11-8world-cdac.jpg" target="_blank" rel="noopener">8world〈华助会和推广华文学习委员会携手举办“华助会亲子阅读嘉年华”〉</a></li>
+          <li><time>2025.12</time><a href="https://www.8world.com/singapore/sccl-christmas-books-2984636" target="_blank" rel="noopener">8world〈新加坡华文教研中心推出名为《我要我的屁屁驯鹿》的新绘本〉</a></li>
+          <li><time>2025.11</time><a href="https://www.8world.com/singapore/cdac-reading-carnival-2963516" target="_blank" rel="noopener">8world〈华助会和推广华文学习委员会携手举办“华助会亲子阅读嘉年华”〉</a></li>
           <li><time>2025.09</time><a href="https://share.google/AcJaxy0razaAehw8q" target="_blank" rel="noopener">《联合早报》报道：新加坡华文教研中心告别锦茂路，院长符传丰博士、课程主任林义平与学前部主任郑婉妮共同受访</a></li>
           <li><time>2024.12</time><a href="https://www.zaobao.com.sg/lifestyle/familynlove/story20241215-5541822" target="_blank" rel="noopener">《联合早报》〈加入戏剧性“音效”　让亲子阅读更有趣〉（专访）</a></li>
           <li><time>2024.12</time><a href="https://kinderland.com.sg/sccl-launches-new-childrens-book-to-foster-bilingual-reading/" target="_blank" rel="noopener">Kinderland〈SCCL Launches New Children’s Book to Foster Bilingual Reading〉</a></li>
-          <li><time>2024.11</time>8world〈华文教研中心推出新圣诞绘本《啊！驯鹿要请假？》〉</li>
-          <li><time>2024.09</time><a href="img/press/2024-09-09-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈《小小拇指》欢庆中秋　搞笑“长鹅”与“嫦娥”让小朋友乐翻天〉</a></li>
+          <li><time>2024.11</time><a href="https://www.8world.com/singapore/sccl-book-launch-2637351" target="_blank" rel="noopener">8world〈华文教研中心推出新圣诞绘本《啊！驯鹿要请假？》〉</a></li>
+          <li><time>2024.09</time><a href="https://www.zaobao.com.sg/news/singapore/story20240908-4659708" target="_blank" rel="noopener">《联合早报》〈《小小拇指》欢庆中秋　亲子工作坊助孩子认识传统节日〉</a></li>
           <li><time>2024.08</time>〈小小拇指与华文教研中心联办中秋欢乐行亲子工作坊〉</li>
           <li><time>2024.05</time><a href="https://www.zaobao.com.sg/news/singapore/story20240502-3558068" target="_blank" rel="noopener">《联合早报》〈华文教研中心推出绘本　教孩子从日常点滴中理解“爱”〉</a></li>
-          <li><time>2024.05</time>8world〈新加坡华文教研中心推出新儿童绘本《把爱藏起来》〉</li>
-          <li><time>2024.03</time>《联合早报》〈幼儿华语文教具比赛　幼教教师本土特色绘本夺冠〉</li>
-          <li><time>2024.03</time>8world〈幼儿华语文教具比赛圆满落幕，兀兰学前中心作品胜出〉</li>
-          <li><time>2023.12</time><a href="img/press/2023-12-zaobao-xmas.jpg" target="_blank" rel="noopener">《联合早报》〈圣诞绘本启发幼儿同理心　感谢服务业员工付出〉</a></li>
-          <li><time>2023.12</time>8world〈新加坡华文教研中心推新绘本《神秘的圣诞礼物》〉</li>
-          <li><time>2023.06</time><a href="img/press/2023-06-16-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈发挥设计巧思　说好绘本故事〉</a></li>
-          <li><time>2023.05</time><a href="img/press/2023-5e.jpg" target="_blank" rel="noopener">《联合早报》〈创新绘本激发幼儿想象力爱上阅读〉</a></li>
+          <li><time>2024.05</time><a href="https://www.8world.com/singapore/sccl-childrens-book-2444476" target="_blank" rel="noopener">8world〈新加坡华文教研中心推出新儿童绘本《把爱藏起来》〉</a></li>
+          <li><time>2024.03</time><a href="https://www.zaobao.com.sg/news/singapore/story20240309-3134114" target="_blank" rel="noopener">《联合早报》〈幼儿华语文教具比赛　幼教教师本土特色绘本夺冠〉</a></li>
+          <li><time>2024.03</time><a href="https://www.8world.com/singapore/scccl-preschool-teaching-aid-competition-2396571" target="_blank" rel="noopener">8world〈幼儿华语文教具比赛圆满落幕，兀兰学前中心作品胜出〉</a></li>
+          <li><time>2023.12</time><a href="https://www.zaobao.com.sg/news/singapore/story20231203-1453926" target="_blank" rel="noopener">《联合早报》〈圣诞绘本启发幼儿同理心　感谢服务业员工付出〉</a></li>
+          <li><time>2023.12</time><a href="https://www.8world.com/singapore/sccl-2309046" target="_blank" rel="noopener">8world〈新加坡华文教研中心推新绘本《神秘的圣诞礼物》〉</a></li>
+          <li><time>2023.06</time><a href="https://www.zaobao.com.sg/lifestyle/feature/story20230616-1404665" target="_blank" rel="noopener">《联合早报》〈发挥设计巧思　说好绘本故事〉</a></li>
+          <li><time>2023.05</time><a href="https://www.zaobao.com.sg/news/singapore/story20230514-1394352" target="_blank" rel="noopener">《联合早报》〈创新绘本激发幼儿想象力爱上阅读〉</a></li>
           <li><time>2023.05</time>8world〈新加坡华文教研中心推出《5E绘本系列》　为幼儿提供不一般阅读体验〉</li>
           <li><time>2022.12</time><a href="img/press/2022-12-8world-getfat.jpg" target="_blank" rel="noopener">8world〈华文教研中心推出最新儿童绘本《想要变胖的圣诞老人》〉</a></li>
-          <li><time>2022.06</time><a href="img/press/2022-06-12-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈《小小拇指》亲子工作坊　制作教具激发孩子学习兴趣〉</a></li>
-          <li><time>2022.05</time><a href="img/press/2022-05-29-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈《小小拇指》亲子工作坊：善用教具激发孩童学习兴趣与好奇心〉</a></li>
+          <li><time>2022.06</time><a href="https://www.zaobao.com.sg/news/singapore/story20220612-1282059" target="_blank" rel="noopener">《联合早报》〈《小小拇指》亲子工作坊　制作教具激发孩子学习兴趣〉</a></li>
+          <li><time>2022.05</time><a href="https://www.zaobao.com.sg/news/singapore/story20220529-1277380" target="_blank" rel="noopener">《联合早报》〈《小小拇指》亲子工作坊：善用教具激发孩童学习兴趣与好奇心〉</a></li>
           <li><time>2022</time><a href="img/press/2022-8world-tongxin.jpg" target="_blank" rel="noopener">8world〈《童心说》新书发布会暨桌游擂台〉</a></li>
-          <li><time>2021.03</time><a href="img/press/2021-03-11-wanbao.jpg" target="_blank" rel="noopener">《联合晚报》〈学前教育专家：13 月大不适合语言教学〉</a></li>
+          <li><time>2021.03</time><a href="https://www.zaobao.com.sg/znews/singapore/story20210311-1130537" target="_blank" rel="noopener">《联合晚报》〈学前教育专家：13 月大不适合语言教学〉</a></li>
           <li><time>2020.10</time>8world〈幼儿华语文教具比赛　《水獭搬家》获首奖〉</li>
-          <li><time>2019.12</time><a href="img/press/2019-12-chimney.jpg" target="_blank" rel="noopener">《联合早报》〈圣诞老人组屋送礼奇遇记　编成富本地特色华文绘本孩童更着迷〉</a></li>
+          <li><time>2019.12</time><a href="https://www.zaobao.com.sg/znews/singapore/story20191222-1015150" target="_blank" rel="noopener">《联合早报》〈圣诞老人组屋送礼奇遇记　编成富本地特色华文绘本孩童更着迷〉</a></li>
           <li><time>2019.06</time>8world〈新加坡华文教研中心创意教学工具新书　提倡华文华语学习〉</li>
-          <li><time>2019.06</time><a href="img/press/2019-06-06-zaobao.pdf" target="_blank" rel="noopener">《联合早报》〈华文教研中心办桌游设计比赛〉</a></li>
-          <li><time>2018.06</time><a href="img/press/2018-06-30-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈幼教工作者发挥创意　以日用品自制华文教具〉</a></li>
-          <li><time>2018.06</time><a href="img/press/2018-06-10-zaobao.jpg" target="_blank" rel="noopener">《联合早报星期天》〈《小小拇指》出版第 100 期　逾百名“小小书迷”同欢庆〉</a></li>
-          <li><time>2018.03</time><a href="img/press/2018-03-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈幼儿华文教具制作比赛　日常生活材料可派上用场〉</a></li>
-          <li><time>2017.06</time><a href="img/press/2017-06-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈幼教学者郑婉妮：选对绘本助幼儿自信成长〉</a></li>
-          <li><time>2017.05</time><a href="img/press/2017-05-08-zaobao.jpg" target="_blank" rel="noopener">《联合早报》〈学前教育专家：绘本扩大孩子心灵空间〉</a></li>
+          <li><time>2019.06</time><a href="https://www.zaobao.com.sg/news/singapore/story20190606-962307" target="_blank" rel="noopener">《联合早报》〈华文教研中心办桌游设计比赛〉</a></li>
+          <li><time>2018.06</time><a href="https://www.zaobao.com.sg/news/singapore/story20180630-871276" target="_blank" rel="noopener">《联合早报》〈幼教工作者发挥创意　以日用品自制华文教具〉</a></li>
+          <li><time>2018.06</time><a href="https://www.zaobao.com.sg/news/singapore/story20180610-865866" target="_blank" rel="noopener">《联合早报星期天》〈《小小拇指》出版第 100 期　逾百名“小小书迷”同欢庆〉</a></li>
+          <li><time>2018.03</time><a href="https://www.zaobao.com.sg/znews/singapore/story20180304-839707" target="_blank" rel="noopener">《联合早报》〈幼儿华文教具制作比赛　日常生活材料可派上用场〉</a></li>
+          <li><time>2017.06</time><a href="https://www.zaobao.com.sg/znews/singapore/story20170602-767160" target="_blank" rel="noopener">《联合早报》〈幼教学者郑婉妮：选对绘本助幼儿自信成长〉</a></li>
+          <li><time>2017.05</time><a href="https://www.zaobao.com.sg/zlifestyle/culture/story20170508-757616" target="_blank" rel="noopener">《联合早报》〈学前教育专家：绘本扩大孩子心灵空间〉</a></li>
           <li><time>2016.06</time><a href="https://www.zaobao.com.sg/realtime/singapore/story20160618-630640" target="_blank" rel="noopener">《联合晚报》〈华文教研中心推出本地节庆教材〉</a>（<a href="img/press/2016-zaobao-a.jpg" target="_blank" rel="noopener">剪报</a>）</li>
           <li><time>2016.06</time><a href="img/press/2016-b.jpg" target="_blank" rel="noopener">《新明日报》〈新教材助儿童认识本地节庆〉</a></li>
           <li><time>2016.06</time><a href="img/press/2016-06-zb-page.jpg" target="_blank" rel="noopener">《联合早报》〈华文教研中心推出本地节庆教材　让孩童了解各族节庆拉近距离〉</a></li>
