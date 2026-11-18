@@ -1907,7 +1907,8 @@ const BOOKS = [
   "cover": "img/epidemic-cover.jpg",
   "images": [],
   "youtube": "",
-  "xhs": ""
+  "xhs": "",
+  "thumb": "img/epidemic-thumb.jpg"
  },
  {
   "id": "childlit",
@@ -2248,7 +2249,7 @@ function renderShelves(){
       a.append(el('span','kind',b.kind||'\u00a0'), el('h4',null,b.title), el('p',null,b.brief));
       (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       a.append(el('span','more','看介紹'));
-      if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.cover; im.alt=''; im.loading='lazy'; c.append(im); a.append(c);}
+      if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
       if(b.fold) a.classList.add('folded');
       shelf.append(a);
     });
