@@ -242,7 +242,7 @@ a.book:hover{border-color:var(--accent);transform:translateY(-2px)}
 .biofacts dd{margin:0}
 @media (max-width:900px){.biofacts{grid-template-columns:1fr 1fr}.biofacts .fact.wide{grid-column:span 2}}
 @media (max-width:560px){.biofacts{grid-template-columns:1fr}.biofacts .fact.wide{grid-column:auto}}
-.expgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.expgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}.expcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 22px 14px}.expmore{margin-top:auto}.expmore summary{cursor:pointer;list-style:none;color:var(--sage);font-size:14px;font-weight:600;padding:4px 0 6px}.expmore summary::-webkit-details-marker{display:none}.expmore summary::after{content:" ▾"}.expmore[open] summary::after{content:" ▴"}.expmore .sm-close,.expmore[open] .sm-open{display:none}.expmore[open] .sm-close{display:inline}.expmore ol{margin-top:6px}@media(max-width:1000px) and (min-width:701px){.expgrid{grid-template-columns:repeat(2,1fr)}}
 .expgrid h3{font-size:16px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--sage)}
 .expgrid ol{margin:0;padding-left:1.2em;list-style:disc}
 .expgrid li{margin-bottom:12px;color:var(--muted);font-size:14.5px;line-height:1.6}
@@ -411,45 +411,51 @@ nav{position:sticky;top:0;z-index:20;background:var(--paper)}
   <section id="expertise">
     <div class="sechead"><h2>Expertise</h2><span>Ages 0–3 · 3–6 · 6–8</span></div>
     <div class="expgrid">
-      <div><h3>Early childhood curriculum and teaching</h3><ol start="1">
+      <div class="expcard"><h3>Early childhood curriculum and teaching</h3><ol>
         <li><b>Preschool curriculum design and integration</b>Thematic, project and integrated curricula built on play and picture books</li>
-        <li><b>Play-based and inquiry-based learning</b>Purposeful play: from leading to supporting, so children construct knowledge through play</li>
-        <li><b>Teacher-child interaction and questioning</b>Quality interactions that support active learning: question design, response techniques and facilitation</li>
-        <li><b>Festival teaching and whole-centre events</b>First in Singapore to systematise preschool festival teaching, from classroom lessons to whole-centre events</li>
-        <li><b>Learning corners and environment planning</b>Planning story corners, learning corners and the classroom environment</li></ol></div>
-      <div><h3>Child development and learning</h3><ol start="6">
+        <li><b>Play-based and inquiry-based learning</b>Purposeful play: from leading to supporting, so children construct knowledge through play</li></ol>
+        <details class="expmore"><summary><span class="sm-open">Show all</span><span class="sm-close">Show less</span></summary><ol>
+          <li><b>Teacher-child interaction and questioning</b>Quality interactions that support active learning: question design, response techniques and facilitation</li>
+          <li><b>Festival teaching and whole-centre events</b>First in Singapore to systematise preschool festival teaching, from classroom lessons to whole-centre events</li>
+          <li><b>Learning corners and environment planning</b>Planning story corners, learning corners and the classroom environment</li></ol></details></div>
+      <div class="expcard"><h3>Child development and learning</h3><ol>
         <li><b>Infant and toddler development and care</b>Attachment, temperament and caregiving interactions from 0 to 3</li>
-        <li><b>Values, social-emotional competencies and learning dispositions</b>Emotional regulation, relationships, resilience, and learning dispositions such as curiosity and perseverance</li>
-        <li><b>Decoding and responding to behaviour</b>Reading the needs behind behaviour, with the 3R and 3S strategies and responsive interaction</li>
-        <li><b>Language development and early literacy</b>Language acquisition, bilingual development and the literacy transition into lower primary</li>
-        <li><b>Transition from preschool to primary school</b>Learning readiness, adjusting to school life and social-emotional support from kindergarten to Primary 1, with parents and teachers working together</li>
-        <li><b>Special needs and inclusive education</b>Highly sensitive children, dyslexia and differentiated support</li></ol></div>
-      <div><h3>Chinese teaching and children’s literature</h3><ol start="12">
+        <li><b>Values, social-emotional competencies and learning dispositions</b>Emotional regulation, relationships, resilience, and learning dispositions such as curiosity and perseverance</li></ol>
+        <details class="expmore"><summary><span class="sm-open">Show all</span><span class="sm-close">Show less</span></summary><ol>
+          <li><b>Decoding and responding to behaviour</b>Reading the needs behind behaviour, with the 3R and 3S strategies and responsive interaction</li>
+          <li><b>Language development and early literacy</b>Language acquisition, bilingual development and the literacy transition into lower primary</li>
+          <li><b>Transition from preschool to primary school</b>Learning readiness, adjusting to school life and social-emotional support from kindergarten to Primary 1, with parents and teachers working together</li>
+          <li><b>Special needs and inclusive education</b>Highly sensitive children, dyslexia and differentiated support</li></ol></details></div>
+      <div class="expcard"><h3>Chinese teaching and children’s literature</h3><ol>
         <li><b>Teaching Chinese as a second language in preschool and lower primary</b>Classroom design for Chinese as a second language, for children who won’t speak, answer in single words or default to English</li>
-        <li><b>Picture-book teaching and the reading ecosystem</b>From preschool to lower primary, shared-reading questions, extension activities and the reading environment form a complete reading experience</li>
-        <li><b>Chinese reading and character learning in lower primary</b>Choosing bridging books and levelled readers, guiding children from picture books to text, and building independent reading habits</li>
-        <li><b>Story-building and narrative skills</b>Using the “story nine-grid” to teach teachers, parents and children to plan and tell a complete story</li>
-        <li><b>Storytelling and drama</b>Immersive stories designed as live game scripts, with role play and People Game interaction, so every child steps into the story</li>
-        <li><b>Children’s songs, children’s poetry and language games</b>Adapting, writing and reciting children’s songs and poems, with movement and language games</li>
-        <li><b>Children’s literature and picture-book creation</b>Appreciating children’s literature and creating local picture books; the Three-Step Story Method takes teachers and pupils from their own stories to a finished picture book, and extends to story writing in lower primary</li></ol></div>
-      <div><h3>Child welfare and families</h3><ol start="18">
+        <li><b>Picture-book teaching and the reading ecosystem</b>From preschool to lower primary, shared-reading questions, extension activities and the reading environment form a complete reading experience</li></ol>
+        <details class="expmore"><summary><span class="sm-open">Show all</span><span class="sm-close">Show less</span></summary><ol>
+          <li><b>Chinese reading and character learning in lower primary</b>Choosing bridging books and levelled readers, guiding children from picture books to text, and building independent reading habits</li>
+          <li><b>Story-building and narrative skills</b>Using the “story nine-grid” to teach teachers, parents and children to plan and tell a complete story</li>
+          <li><b>Storytelling and drama</b>Immersive stories designed as live game scripts, with role play and People Game interaction, so every child steps into the story</li>
+          <li><b>Children’s songs, children’s poetry and language games</b>Adapting, writing and reciting children’s songs and poems, with movement and language games</li>
+          <li><b>Children’s literature and picture-book creation</b>Appreciating children’s literature and creating local picture books; the Three-Step Story Method takes teachers and pupils from their own stories to a finished picture book, and extends to story writing in lower primary</li></ol></details></div>
+      <div class="expcard"><h3>Child welfare and families</h3><ol>
         <li><b>Child welfare and children’s rights</b>Trained in child welfare (BA, MA), seeing early education through children’s wellbeing</li>
-        <li><b>Family and parenting education</b>Parenting, parent-child communication and family conflict</li>
-        <li><b>Shared reading and the home language environment</b>Building a Chinese-reading environment at home</li>
-        <li><b>Communicating and working with parents</b>Positive communication and home-school partnership</li>
-        <li><b>Child and family counselling</b>Formerly a counsellor at a family education service centre in Taiwan</li></ol></div>
-      <div><h3>Play, teaching aids and experience design for children</h3><ol start="23">
+        <li><b>Family and parenting education</b>Parenting, parent-child communication and family conflict</li></ol>
+        <details class="expmore"><summary><span class="sm-open">Show all</span><span class="sm-close">Show less</span></summary><ol>
+          <li><b>Shared reading and the home language environment</b>Building a Chinese-reading environment at home</li>
+          <li><b>Communicating and working with parents</b>Positive communication and home-school partnership</li>
+          <li><b>Child and family counselling</b>Formerly a counsellor at a family education service centre in Taiwan</li></ol></details></div>
+      <div class="expcard"><h3>Play, teaching aids and experience design for children</h3><ol>
         <li><b>Board-game design and game-based teaching</b>Picture-book board games and teaching with board games, for kindergarten and lower primary, building language and social skills</li>
-        <li><b>Teaching-aid design and teaching resources</b>Founder of the preschool Chinese teaching-aids competition; every edition becomes a book</li>
-        <li><b>User-experience design for children</b>Product, game and activity design grounded in child development</li>
-        <li><b>Addictive design and children’s popular culture</b>Mobile games, media mix and children’s consumer culture</li>
-        <li><b>Children’s product consultancy</b>Former consultant on children’s games, cards and toys for game companies in Taiwan and Japan</li></ol></div>
-      <div><h3>Teacher education and centre management</h3><ol start="28">
+        <li><b>Teaching-aid design and teaching resources</b>Founder of the preschool Chinese teaching-aids competition; every edition becomes a book</li></ol>
+        <details class="expmore"><summary><span class="sm-open">Show all</span><span class="sm-close">Show less</span></summary><ol>
+          <li><b>User-experience design for children</b>Product, game and activity design grounded in child development</li>
+          <li><b>Addictive design and children’s popular culture</b>Mobile games, media mix and children’s consumer culture</li>
+          <li><b>Children’s product consultancy</b>Former consultant on children’s games, cards and toys for game companies in Taiwan and Japan</li></ol></details></div>
+      <div class="expcard"><h3>Teacher education and centre management</h3><ol>
         <li><b>Teacher-education curriculum and practicum</b>Planning early childhood programmes, supervising practicum and writing university textbooks</li>
-        <li><b>Teachers’ professional growth and burnout</b>Teachers’ emotions, self-motivation and cross-cultural adaptation</li>
-        <li><b>Responsive teams and centre leadership</b>Collaboration among teachers, between Chinese and English teachers, and with leaders</li>
-        <li><b>Curriculum evaluation and indicators</b>Educational evaluation and building professional indicators</li>
-        <li><b>Crisis and health management in preschools</b>PhD thesis built kindergarten infectious-disease crisis-management indicators using the Delphi method</li></ol></div>
+        <li><b>Teachers’ professional growth and burnout</b>Teachers’ emotions, self-motivation and cross-cultural adaptation</li></ol>
+        <details class="expmore"><summary><span class="sm-open">Show all</span><span class="sm-close">Show less</span></summary><ol>
+          <li><b>Responsive teams and centre leadership</b>Collaboration among teachers, between Chinese and English teachers, and with leaders</li>
+          <li><b>Curriculum evaluation and indicators</b>Educational evaluation and building professional indicators</li>
+          <li><b>Crisis and health management in preschools</b>PhD thesis built kindergarten infectious-disease crisis-management indicators using the Delphi method</li></ol></details></div>
     </div>
   </section>
 

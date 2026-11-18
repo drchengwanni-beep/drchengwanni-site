@@ -242,7 +242,7 @@ a.book:hover{border-color:var(--accent);transform:translateY(-2px)}
 .biofacts dd{margin:0}
 @media (max-width:900px){.biofacts{grid-template-columns:1fr 1fr}.biofacts .fact.wide{grid-column:span 2}}
 @media (max-width:560px){.biofacts{grid-template-columns:1fr}.biofacts .fact.wide{grid-column:auto}}
-.expgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.expgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}.expcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 22px 14px}.expmore{margin-top:auto}.expmore summary{cursor:pointer;list-style:none;color:var(--sage);font-size:14px;font-weight:600;padding:4px 0 6px}.expmore summary::-webkit-details-marker{display:none}.expmore summary::after{content:" ▾"}.expmore[open] summary::after{content:" ▴"}.expmore .sm-close,.expmore[open] .sm-open{display:none}.expmore[open] .sm-close{display:inline}.expmore ol{margin-top:6px}@media(max-width:1000px) and (min-width:701px){.expgrid{grid-template-columns:repeat(2,1fr)}}
 .expgrid h3{font-size:16px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--sage)}
 .expgrid ol{margin:0;padding-left:1.2em;list-style:disc}
 .expgrid li{margin-bottom:12px;color:var(--muted);font-size:14.5px;line-height:1.6}
@@ -410,45 +410,51 @@ nav{position:sticky;top:0;z-index:20;background:var(--paper)}
   <section id="expertise">
     <div class="sechead"><h2>專業領域</h2><span>Expertise · 0–3 · 3–6 · 6–8 歲</span></div>
     <div class="expgrid">
-      <div><h3>幼兒課程與教學</h3><ol start="1">
+      <div class="expcard"><h3>幼兒課程與教學</h3><ol>
         <li><b>幼兒園課程設計與統整</b>以遊戲與繪本為本，規劃主題、方案與統整課程</li>
-        <li><b>遊戲式與探究式學習</b>有目的的遊戲：從主導到支持，讓孩子在遊戲中建構知識</li>
-        <li><b>師幼互動與提問</b>以優質互動支持主動學習：提問設計、回應技巧與互動引導</li>
-        <li><b>節慶教學與全園活動企劃</b>在新加坡率先將學前節慶教學系統化，從課室教案到全園活動</li>
-        <li><b>學習區與環境規劃</b>故事角、學習區與教室環境的規劃與佈置</li></ol></div>
-      <div><h3>兒童發展與學習</h3><ol start="6">
+        <li><b>遊戲式與探究式學習</b>有目的的遊戲：從主導到支持，讓孩子在遊戲中建構知識</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展開看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>師幼互動與提問</b>以優質互動支持主動學習：提問設計、回應技巧與互動引導</li>
+          <li><b>節慶教學與全園活動企劃</b>在新加坡率先將學前節慶教學系統化，從課室教案到全園活動</li>
+          <li><b>學習區與環境規劃</b>故事角、學習區與教室環境的規劃與佈置</li></ol></details></div>
+      <div class="expcard"><h3>兒童發展與學習</h3><ol>
         <li><b>嬰幼兒發展與保育</b>依戀、氣質與 0–3 歲的照護互動</li>
-        <li><b>價值觀、社交情緒能力與學習品格</b>情緒調節、人際關係、心理韌性與好奇、堅持等學習品格的培養</li>
-        <li><b>幼兒行為解碼與回應</b>讀懂行為背後的需求，運用 3R、3S 與回應式互動</li>
-        <li><b>語言發展與早期讀寫</b>語言習得、雙語發展與學前到低年級的讀寫銜接</li>
-        <li><b>幼小銜接</b>從幼兒園到小一的學習準備、生活適應與社交情緒支持，以及家長與教師的銜接合作</li>
-        <li><b>特殊需求與融合教育</b>高敏感兒童、閱讀障礙與差異化支持</li></ol></div>
-      <div><h3>華文教學與兒童文學</h3><ol start="12">
+        <li><b>價值觀、社交情緒能力與學習品格</b>情緒調節、人際關係、心理韌性與好奇、堅持等學習品格的培養</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展開看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>幼兒行為解碼與回應</b>讀懂行為背後的需求，運用 3R、3S 與回應式互動</li>
+          <li><b>語言發展與早期讀寫</b>語言習得、雙語發展與學前到低年級的讀寫銜接</li>
+          <li><b>幼小銜接</b>從幼兒園到小一的學習準備、生活適應與社交情緒支持，以及家長與教師的銜接合作</li>
+          <li><b>特殊需求與融合教育</b>高敏感兒童、閱讀障礙與差異化支持</li></ol></details></div>
+      <div class="expcard"><h3>華文教學與兒童文學</h3><ol>
         <li><b>幼兒與低年級華文二語教學</b>華文作為第二語言的課堂設計，回應不敢開口、只說單字或習慣說英文的孩子</li>
-        <li><b>繪本教學與閱讀生態系</b>從學前到低年級，以共讀提問、延伸活動與閱讀環境構成完整的閱讀經驗</li>
-        <li><b>低年級華文閱讀與識字</b>橋樑書與分級讀物的選用，引導孩子從圖畫書走向文字閱讀，培養自主閱讀的習慣</li>
-        <li><b>故事力與敘事能力建構</b>以「故事九宮格」教教師、家長與孩子構思並說出完整的故事</li>
-        <li><b>故事說演與戲劇教學</b>以現場遊戲劇本設計沉浸式故事，結合角色扮演與 People Game 互動，讓全場孩子走進故事</li>
-        <li><b>兒歌、童詩與語言遊戲</b>兒歌與童詩的改編、創編與朗讀，結合肢體律動與語言遊戲</li>
-        <li><b>兒童文學與繪本創作</b>兒童文學賞析、在地繪本創作，以「故事創作三階法」帶教師與學生從自編故事到完成繪本，亦可延伸為低年級的故事寫作</li></ol></div>
-      <div><h3>兒童福利與家庭</h3><ol start="18">
+        <li><b>繪本教學與閱讀生態系</b>從學前到低年級，以共讀提問、延伸活動與閱讀環境構成完整的閱讀經驗</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展開看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>低年級華文閱讀與識字</b>橋樑書與分級讀物的選用，引導孩子從圖畫書走向文字閱讀，培養自主閱讀的習慣</li>
+          <li><b>故事力與敘事能力建構</b>以「故事九宮格」教教師、家長與孩子構思並說出完整的故事</li>
+          <li><b>故事說演與戲劇教學</b>以現場遊戲劇本設計沉浸式故事，結合角色扮演與 People Game 互動，讓全場孩子走進故事</li>
+          <li><b>兒歌、童詩與語言遊戲</b>兒歌與童詩的改編、創編與朗讀，結合肢體律動與語言遊戲</li>
+          <li><b>兒童文學與繪本創作</b>兒童文學賞析、在地繪本創作，以「故事創作三階法」帶教師與學生從自編故事到完成繪本，亦可延伸為低年級的故事寫作</li></ol></details></div>
+      <div class="expcard"><h3>兒童福利與家庭</h3><ol>
         <li><b>兒童福利與兒童權益</b>兒童福利學士、碩士出身，從兒童福祉看幼兒教育</li>
-        <li><b>家庭教育與親職教育</b>教養觀念、親子溝通與家庭衝突</li>
-        <li><b>親子共讀與家庭語言環境</b>在家營造華文與閱讀的環境</li>
-        <li><b>親師溝通與家長合作</b>正向溝通與家園合作</li>
-        <li><b>兒童與家庭諮商輔導</b>曾任臺灣家庭教育服務中心諮商輔導專員</li></ol></div>
-      <div><h3>遊戲、教具與兒童體驗設計</h3><ol start="23">
+        <li><b>家庭教育與親職教育</b>教養觀念、親子溝通與家庭衝突</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展開看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>親子共讀與家庭語言環境</b>在家營造華文與閱讀的環境</li>
+          <li><b>親師溝通與家長合作</b>正向溝通與家園合作</li>
+          <li><b>兒童與家庭諮商輔導</b>曾任臺灣家庭教育服務中心諮商輔導專員</li></ol></details></div>
+      <div class="expcard"><h3>遊戲、教具與兒童體驗設計</h3><ol>
         <li><b>桌遊設計與遊戲教學</b>繪本桌遊與桌遊教學，適用於幼兒園與小學低年級，培養語言力與社交力</li>
-        <li><b>教具設計與教學資源</b>推動學前華文教具比賽，每屆成果出版成書</li>
-        <li><b>兒童使用者經驗設計</b>以兒童發展為本的產品、遊戲與活動體驗設計</li>
-        <li><b>成癮設計與兒童流行文化</b>手機遊戲、媒體組合與兒童消費文化</li>
-        <li><b>兒童產品開發顧問</b>曾任臺灣與日本遊戲公司兒童遊戲、卡牌與玩具顧問</li></ol></div>
-      <div><h3>師資培育與園所經營</h3><ol start="28">
+        <li><b>教具設計與教學資源</b>推動學前華文教具比賽，每屆成果出版成書</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展開看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>兒童使用者經驗設計</b>以兒童發展為本的產品、遊戲與活動體驗設計</li>
+          <li><b>成癮設計與兒童流行文化</b>手機遊戲、媒體組合與兒童消費文化</li>
+          <li><b>兒童產品開發顧問</b>曾任臺灣與日本遊戲公司兒童遊戲、卡牌與玩具顧問</li></ol></details></div>
+      <div class="expcard"><h3>師資培育與園所經營</h3><ol>
         <li><b>師資培育課程與實習輔導</b>幼保系課程規劃、實習輔導與大學教材撰寫</li>
-        <li><b>教師專業成長與職業倦怠</b>教師情緒、自我激勵與跨文化適應</li>
-        <li><b>回應式團隊與園所領導</b>教師之間、華文與英文老師、教師與主管的合作</li>
-        <li><b>課程與教學評鑑、指標建構</b>教育評鑑與專業指標的建構</li>
-        <li><b>幼兒園危機與衛生管理</b>博士論文以德爾菲法建構幼兒園傳染病危機管理指標</li></ol></div>
+        <li><b>教師專業成長與職業倦怠</b>教師情緒、自我激勵與跨文化適應</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展開看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>回應式團隊與園所領導</b>教師之間、華文與英文老師、教師與主管的合作</li>
+          <li><b>課程與教學評鑑、指標建構</b>教育評鑑與專業指標的建構</li>
+          <li><b>幼兒園危機與衛生管理</b>博士論文以德爾菲法建構幼兒園傳染病危機管理指標</li></ol></details></div>
     </div>
   </section>
 

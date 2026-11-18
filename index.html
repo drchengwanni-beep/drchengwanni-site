@@ -242,7 +242,7 @@ a.book:hover{border-color:var(--accent);transform:translateY(-2px)}
 .biofacts dd{margin:0}
 @media (max-width:900px){.biofacts{grid-template-columns:1fr 1fr}.biofacts .fact.wide{grid-column:span 2}}
 @media (max-width:560px){.biofacts{grid-template-columns:1fr}.biofacts .fact.wide{grid-column:auto}}
-.expgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.expgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}.expcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 22px 14px}.expmore{margin-top:auto}.expmore summary{cursor:pointer;list-style:none;color:var(--sage);font-size:14px;font-weight:600;padding:4px 0 6px}.expmore summary::-webkit-details-marker{display:none}.expmore summary::after{content:" ▾"}.expmore[open] summary::after{content:" ▴"}.expmore .sm-close,.expmore[open] .sm-open{display:none}.expmore[open] .sm-close{display:inline}.expmore ol{margin-top:6px}@media(max-width:1000px) and (min-width:701px){.expgrid{grid-template-columns:repeat(2,1fr)}}
 .expgrid h3{font-size:16px;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--sage)}
 .expgrid ol{margin:0;padding-left:1.2em;list-style:disc}
 .expgrid li{margin-bottom:12px;color:var(--muted);font-size:14.5px;line-height:1.6}
@@ -410,45 +410,51 @@ nav{position:sticky;top:0;z-index:20;background:var(--paper)}
   <section id="expertise">
     <div class="sechead"><h2>专业领域</h2><span>Expertise · 0–3 · 3–6 · 6–8 岁</span></div>
     <div class="expgrid">
-      <div><h3>幼儿课程与教学</h3><ol start="1">
+      <div class="expcard"><h3>幼儿课程与教学</h3><ol>
         <li><b>幼儿园课程设计与统整</b>以游戏与绘本为本，规划主题、方案与统整课程</li>
-        <li><b>游戏式与探究式学习</b>有目的的游戏：从主导到支持，让孩子在游戏中建构知识</li>
-        <li><b>师幼互动与提问</b>以优质互动支持主动学习：提问设计、回应技巧与互动引导</li>
-        <li><b>节庆教学与全园活动企划</b>在新加坡率先将学前节庆教学系统化，从课室教案到全园活动</li>
-        <li><b>学习区与环境规划</b>故事角、学习区与教室环境的规划与布置</li></ol></div>
-      <div><h3>儿童发展与学习</h3><ol start="6">
+        <li><b>游戏式与探究式学习</b>有目的的游戏：从主导到支持，让孩子在游戏中建构知识</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展开看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>师幼互动与提问</b>以优质互动支持主动学习：提问设计、回应技巧与互动引导</li>
+          <li><b>节庆教学与全园活动企划</b>在新加坡率先将学前节庆教学系统化，从课室教案到全园活动</li>
+          <li><b>学习区与环境规划</b>故事角、学习区与教室环境的规划与布置</li></ol></details></div>
+      <div class="expcard"><h3>儿童发展与学习</h3><ol>
         <li><b>婴幼儿发展与保育</b>依恋、气质与 0–3 岁的照护互动</li>
-        <li><b>价值观、社交情绪能力与学习品格</b>情绪调节、人际关系、心理韧性与好奇、坚持等学习品格的培养</li>
-        <li><b>幼儿行为解码与回应</b>读懂行为背后的需求，运用 3R、3S 与回应式互动</li>
-        <li><b>语言发展与早期读写</b>语言习得、双语发展与学前到低年级的读写衔接</li>
-        <li><b>幼小衔接</b>从幼儿园到小一的学习准备、生活适应与社交情绪支持，以及家长与教师的衔接合作</li>
-        <li><b>特殊需求与融合教育</b>高敏感儿童、阅读障碍与差异化支持</li></ol></div>
-      <div><h3>华文教学与儿童文学</h3><ol start="12">
+        <li><b>价值观、社交情绪能力与学习品格</b>情绪调节、人际关系、心理韧性与好奇、坚持等学习品格的培养</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展开看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>幼儿行为解码与回应</b>读懂行为背后的需求，运用 3R、3S 与回应式互动</li>
+          <li><b>语言发展与早期读写</b>语言习得、双语发展与学前到低年级的读写衔接</li>
+          <li><b>幼小衔接</b>从幼儿园到小一的学习准备、生活适应与社交情绪支持，以及家长与教师的衔接合作</li>
+          <li><b>特殊需求与融合教育</b>高敏感儿童、阅读障碍与差异化支持</li></ol></details></div>
+      <div class="expcard"><h3>华文教学与儿童文学</h3><ol>
         <li><b>幼儿与低年级华文二语教学</b>华文作为第二语言的课堂设计，回应不敢开口、只说单字或习惯说英文的孩子</li>
-        <li><b>绘本教学与阅读生态系</b>从学前到低年级，以共读提问、延伸活动与阅读环境构成完整的阅读经验</li>
-        <li><b>低年级华文阅读与识字</b>桥梁书与分级读物的选用，引导孩子从图画书走向文字阅读，培养自主阅读的习惯</li>
-        <li><b>故事力与叙事能力建构</b>以“故事九宫格”教教师、家长与孩子构思并说出完整的故事</li>
-        <li><b>故事说演与戏剧教学</b>以现场游戏剧本设计沉浸式故事，结合角色扮演与 People Game 互动，让全场孩子走进故事</li>
-        <li><b>儿歌、童诗与语言游戏</b>儿歌与童诗的改编、创编与朗读，结合肢体律动与语言游戏</li>
-        <li><b>儿童文学与绘本创作</b>儿童文学赏析、在地绘本创作，以“故事创作三阶法”带教师与学生从自编故事到完成绘本，亦可延伸为低年级的故事写作</li></ol></div>
-      <div><h3>儿童福利与家庭</h3><ol start="18">
+        <li><b>绘本教学与阅读生态系</b>从学前到低年级，以共读提问、延伸活动与阅读环境构成完整的阅读经验</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展开看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>低年级华文阅读与识字</b>桥梁书与分级读物的选用，引导孩子从图画书走向文字阅读，培养自主阅读的习惯</li>
+          <li><b>故事力与叙事能力建构</b>以“故事九宫格”教教师、家长与孩子构思并说出完整的故事</li>
+          <li><b>故事说演与戏剧教学</b>以现场游戏剧本设计沉浸式故事，结合角色扮演与 People Game 互动，让全场孩子走进故事</li>
+          <li><b>儿歌、童诗与语言游戏</b>儿歌与童诗的改编、创编与朗读，结合肢体律动与语言游戏</li>
+          <li><b>儿童文学与绘本创作</b>儿童文学赏析、在地绘本创作，以“故事创作三阶法”带教师与学生从自编故事到完成绘本，亦可延伸为低年级的故事写作</li></ol></details></div>
+      <div class="expcard"><h3>儿童福利与家庭</h3><ol>
         <li><b>儿童福利与儿童权益</b>儿童福利学士、硕士出身，从儿童福祉看幼儿教育</li>
-        <li><b>家庭教育与亲职教育</b>教养观念、亲子沟通与家庭冲突</li>
-        <li><b>亲子共读与家庭语言环境</b>在家营造华文与阅读的环境</li>
-        <li><b>亲师沟通与家长合作</b>正向沟通与家园合作</li>
-        <li><b>儿童与家庭咨商辅导</b>曾任台湾家庭教育服务中心咨商辅导专员</li></ol></div>
-      <div><h3>游戏、教具与儿童体验设计</h3><ol start="23">
+        <li><b>家庭教育与亲职教育</b>教养观念、亲子沟通与家庭冲突</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展开看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>亲子共读与家庭语言环境</b>在家营造华文与阅读的环境</li>
+          <li><b>亲师沟通与家长合作</b>正向沟通与家园合作</li>
+          <li><b>儿童与家庭咨商辅导</b>曾任台湾家庭教育服务中心咨商辅导专员</li></ol></details></div>
+      <div class="expcard"><h3>游戏、教具与儿童体验设计</h3><ol>
         <li><b>桌游设计与游戏教学</b>绘本桌游与桌游教学，适用于幼儿园与小学低年级，培养语言力与社交力</li>
-        <li><b>教具设计与教学资源</b>推动学前华文教具比赛，每届成果出版成书</li>
-        <li><b>儿童使用者经验设计</b>以儿童发展为本的产品、游戏与活动体验设计</li>
-        <li><b>成瘾设计与儿童流行文化</b>手机游戏、媒体组合与儿童消费文化</li>
-        <li><b>儿童产品开发顾问</b>曾任台湾与日本游戏公司儿童游戏、卡牌与玩具顾问</li></ol></div>
-      <div><h3>师资培育与园所经营</h3><ol start="28">
+        <li><b>教具设计与教学资源</b>推动学前华文教具比赛，每届成果出版成书</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展开看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>儿童使用者经验设计</b>以儿童发展为本的产品、游戏与活动体验设计</li>
+          <li><b>成瘾设计与儿童流行文化</b>手机游戏、媒体组合与儿童消费文化</li>
+          <li><b>儿童产品开发顾问</b>曾任台湾与日本游戏公司儿童游戏、卡牌与玩具顾问</li></ol></details></div>
+      <div class="expcard"><h3>师资培育与园所经营</h3><ol>
         <li><b>师资培育课程与实习辅导</b>幼保系课程规划、实习辅导与大学教材撰写</li>
-        <li><b>教师专业成长与职业倦怠</b>教师情绪、自我激励与跨文化适应</li>
-        <li><b>回应式团队与园所领导</b>教师之间、华文与英文老师、教师与主管的合作</li>
-        <li><b>课程与教学评鉴、指标建构</b>教育评鉴与专业指标的建构</li>
-        <li><b>幼儿园危机与卫生管理</b>博士论文以德尔菲法建构幼儿园传染病危机管理指标</li></ol></div>
+        <li><b>教师专业成长与职业倦怠</b>教师情绪、自我激励与跨文化适应</li></ol>
+        <details class="expmore"><summary><span class="sm-open">展开看全部</span><span class="sm-close">收起</span></summary><ol>
+          <li><b>回应式团队与园所领导</b>教师之间、华文与英文老师、教师与主管的合作</li>
+          <li><b>课程与教学评鉴、指标建构</b>教育评鉴与专业指标的建构</li>
+          <li><b>幼儿园危机与卫生管理</b>博士论文以德尔菲法建构幼儿园传染病危机管理指标</li></ol></details></div>
     </div>
   </section>
 
