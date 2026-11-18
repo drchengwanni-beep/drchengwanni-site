@@ -114,7 +114,7 @@ section{padding:56px 0;border-top:1px solid var(--line)}
 .tvfeat b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px}
 @media(max-width:640px){.tvfeat{grid-template-columns:1fr}}
 .svclist{margin:8px 0 8px;padding-left:1.2em;color:var(--muted);font-size:14.5px;line-height:1.7}
-.svcphoto{margin:0}
+.svcphoto{margin:0}.ytlite{position:relative;cursor:pointer}.ytlite img{width:100%;object-fit:cover;border-radius:8px;display:block}.ytplay{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;background:rgba(200,0,0,.88);border-radius:12px}.ytplay::after{content:"";position:absolute;left:27px;top:14px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff}.ytlite:hover .ytplay{background:#e00}
 .svcphoto img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:8px;display:block}
 .svcphoto figcaption{font-size:13px;color:var(--muted);margin-top:8px}
 .svclinks{margin-top:14px!important}
@@ -754,10 +754,10 @@ nav{position:sticky;top:0;z-index:20;background:var(--paper)}
           <p class="svcfor"><b>For</b>Companies, foundations, government agencies and publishers</p>
           
           <p class="svccase"><b>Collaboration case</b>　What is Love? was sponsored by a local business; 1,250 copies went to preschool operators, CDAC and the National Library Board, and it was launched by Ms Sun Xueling, Minister of State for Social and Family Development and Home Affairs.</p>
-          <p class="svccase"><b>Collaboration case</b>　The 5E picture-book series, six titles, was published with support from the Lee Kuan Yew Fund for Bilingualism; Dr Ho Peng, former Director-General of Education, was guest of honour at its launch in May 2023.</p>
+          <p class="svccase"><b>Collaboration case</b>　The 5E picture-book series, six titles, was published with support from the Lee Kuan Yew Fund for Bilingualism; Ms Ho Peng, Chairman of the Singapore Centre for Chinese Language and former Director-General of Education, was guest of honour at its launch in May 2023.</p>
           <p class="svclinks"><a class="invite" target="_blank" rel="noopener" href="mailto:drchengwanni@gmail.com?subject=%E7%BB%98%E6%9C%AC%E5%87%BA%E7%89%88%E5%90%88%E4%BD%9C">Discuss a picture-book project →</a>　<a class="invite" href="#books">See books →</a></p>
         </div>
-        <div style="display:flex;flex-direction:column;gap:18px"><figure class="svcphoto"><img src="img/press/2024-05-hidelove-launch.jpg" alt="Minister of State Sun Xueling reading What is Love?" loading="lazy"><figcaption>May 2024: Ms Sun Xueling, Minister of State for Social and Family Development and Home Affairs, reads What is Love? with children at the launch (photo: Singapore Centre for Chinese Language)</figcaption></figure><figure class="svcphoto"><img src="img/press/2023-05-5e-launch.jpg" style="aspect-ratio:16/9;object-position:center 30%" alt="Group photo at the 5E picture-book series launch" loading="lazy"><figcaption>2023.05 At the launch of the 5E picture-book series: Dr Cheng with guest of honour Dr Ho Peng (second from right), SCCL Executive Director Dr Foo Suan Fong (centre), Kinderland storytelling teachers and a young reader</figcaption></figure></div>
+        <div style="display:flex;flex-direction:column;gap:18px"><figure class="svcphoto"><img src="img/press/2024-05-hidelove-launch.jpg" alt="Minister of State Sun Xueling reading What is Love?" loading="lazy"><figcaption>May 2024: Ms Sun Xueling, Minister of State for Social and Family Development and Home Affairs, reads What is Love? with children at the launch (photo: Singapore Centre for Chinese Language)</figcaption></figure><figure class="svcphoto"><img src="img/press/2023-05-5e-launch.jpg" style="aspect-ratio:16/9;object-position:center 30%" alt="Group photo at the 5E picture-book series launch" loading="lazy"><figcaption>2023.05 At the launch of the 5E picture-book series: Dr Cheng with guest of honour Ms Ho Peng (second from right), SCCL Executive Director Dr Foo Suan Fong (centre), Kinderland storytelling teachers and a young reader</figcaption></figure><figure class="svcphoto"><div class="ytlite" role="button" tabindex="0" aria-label="Play video" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/4D3c3cUo5mY?autoplay=1&quot; title=&quot;5E picture-book series launch&quot; allow=&quot;autoplay; encrypted-media; picture-in-picture&quot; allowfullscreen style=&quot;width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block&quot;></iframe>'"><img src="img/press/2023-05-hopeng.jpg" style="aspect-ratio:16/9" alt="Ms Ho Peng speaking at the 5E picture-book series launch" loading="lazy"><span class="ytplay" aria-hidden="true"></span></div><figcaption>2023.05 Video of the 5E picture-book series launch: guest of honour Ms Ho Peng, Chairman of the Singapore Centre for Chinese Language, gives her speech (video: SCCL 幼师会客室 channel)</figcaption></figure></div>
       </div>
       <div class="svc courses" id="courses">
         <div>
@@ -1525,7 +1525,7 @@ const BOOKS = [
   "xhs": "http://xhslink.com/o/9gWPBlpaI7m",
   "more": [
    [
-    "The 5E Project picture books launch",
+    "5E picture-book series launch",
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
@@ -1566,7 +1566,7 @@ const BOOKS = [
   "xhs": "http://xhslink.com/o/8hGc16eECeX",
   "more": [
    [
-    "The 5E Project picture books launch",
+    "5E picture-book series launch",
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
@@ -1611,7 +1611,7 @@ const BOOKS = [
   "xhs": "http://xhslink.com/o/6Mpp1FL1UZS",
   "more": [
    [
-    "The 5E Project picture books launch",
+    "5E picture-book series launch",
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
@@ -1656,7 +1656,7 @@ const BOOKS = [
   "xhs": "http://xhslink.com/o/4xQpfsaf8Oq",
   "more": [
    [
-    "The 5E Project picture books launch",
+    "5E picture-book series launch",
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
@@ -1697,7 +1697,7 @@ const BOOKS = [
   "xhs": "http://xhslink.com/o/3YpMCPvUw6P",
   "more": [
    [
-    "The 5E Project picture books launch",
+    "5E picture-book series launch",
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
@@ -1738,7 +1738,7 @@ const BOOKS = [
   "xhs": "http://xhslink.com/o/Dwzl3DAxZa",
   "more": [
    [
-    "The 5E Project picture books launch",
+    "5E picture-book series launch",
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
@@ -1775,7 +1775,7 @@ const BOOKS = [
   "xhs": "",
   "more": [
    [
-    "The 5E Project picture books launch",
+    "5E picture-book series launch",
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
