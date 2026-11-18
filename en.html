@@ -2437,7 +2437,7 @@ function renderDetail(b){
     const v=el('div','videos');
     [['youtube','Storytelling on YouTube'],['xhs','Storytelling on Xiaohongshu'],['talk','The author on the book']].forEach(([k,label])=>{
       if(b[k]){const a=el('a','vbtn',label+' ↗'); a.href=b[k]; a.target='_blank'; a.rel='noopener'; v.append(a);}
-      else if(k!=='talk' && ['santa','xiaogua','5e'].includes(b.group)) v.append(el('span','vbtn off',label+' (coming soon)'));
+      else if(k!=='talk' && ['santa','xiaogua','5e'].includes(b.group) && b.id!=='guide5e') v.append(el('span','vbtn off',label+' (coming soon)'));
     });
    (b.more||[]).forEach(([label,u])=>{const a=el('a','vbtn',label+' ↗'); a.href=u; a.target='_blank'; a.rel='noopener'; v.append(a);});
     info.append(v);

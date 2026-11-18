@@ -2436,7 +2436,7 @@ function renderDetail(b){
     const v=el('div','videos');
     [['youtube','YouTube 講故事'],['xhs','小紅書 講故事'],['talk','作者談創作理念']].forEach(([k,label])=>{
       if(b[k]){const a=el('a','vbtn',label+' ↗'); a.href=b[k]; a.target='_blank'; a.rel='noopener'; v.append(a);}
-      else if(k!=='talk' && ['santa','xiaogua','5e'].includes(b.group)) v.append(el('span','vbtn off',label+'（即將上線）'));
+      else if(k!=='talk' && ['santa','xiaogua','5e'].includes(b.group) && b.id!=='guide5e') v.append(el('span','vbtn off',label+'（即將上線）'));
     });
     (b.more||[]).forEach(([label,u])=>{const a=el('a','vbtn',label+' ↗'); a.href=u; a.target='_blank'; a.rel='noopener'; v.append(a);});
     info.append(v);
