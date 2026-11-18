@@ -146,6 +146,16 @@ section{padding:56px 0;border-top:1px solid var(--line)}
 .book .kind{font-size:12px;color:var(--muted);letter-spacing:.06em}
 .book h4{margin:0;font-size:17px;line-height:1.5}
 .book p{margin:0;font-size:14px;color:var(--muted);line-height:1.7}
+.freebadge,.edbadge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:#fff;background:#2F5D3E;border-radius:999px;padding:2px 10px;vertical-align:1px;margin-right:4px}
+.edbadge{background:#7A4E1F}
+.book .freebadge,.book .edbadge{position:absolute;right:88px;bottom:22px;margin:0;font-size:9px;font-weight:600;padding:0 5px;letter-spacing:0;line-height:1.6;border-radius:4px;opacity:.85}
+.book.hased.hasfree .edbadge{bottom:40px}
+
+.altpanel{margin-top:22px;padding:18px 20px;border:1px solid var(--line);border-left:4px solid #7A4E1F;border-radius:10px;background:var(--surface);max-width:40em}
+.altpanel .altlab{font-size:12.5px;font-weight:700;color:#7A4E1F;letter-spacing:.06em;margin:0 0 4px}
+.altpanel h4{margin:0 0 8px;font-size:17px}
+.altpanel p{margin:0 0 10px;color:var(--muted)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .edbadge{background:#B98A4F;color:#1E221F}:root:not([data-theme="light"]) .freebadge{background:#7FB08E;color:#1E221F}:root:not([data-theme="light"]) .altpanel .altlab{color:#D2B47A}}
 .tag{align-self:flex-start;font-size:12px;padding:2px 10px;border-radius:999px;background:color-mix(in srgb,var(--ochre) 22%,transparent);color:var(--ink);margin-top:4px}
 .playlist{margin:0 0 28px}
 .shelf-title{font-size:15px;font-weight:700;margin:32px 0 12px;color:var(--ink)}
@@ -815,7 +825,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=r6Q6A6X3XwA"
    ]
   ],
-  "thumb": "img/thumb-chimney.jpg"
+  "thumb": "img/thumb-chimney.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "英文版",
+   "title": "Where’s the Chimney",
+   "intro": [
+    "Santa from the North comes to always-summer Singapore with presents, tries every way in, but cannot find a chimney. How will he get into every child’s home?",
+    "The first book in the Christmas series: starting from life in Singapore’s HDB flats, a Christmas picture book that belongs to Singapore’s children."
+   ],
+   "lang": "en"
+  }
  },
  {
   "id": "flipflops",
@@ -865,7 +885,16 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=B8lzdihfJcY"
    ]
   ],
-  "thumb": "img/thumb-flipflops.jpg"
+  "thumb": "img/thumb-flipflops.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "英文版",
+   "title": "Santa’s Flip-flops",
+   "intro": [
+    "This time Santa is smarter: he comes to Singapore in a floral shirt, shorts and flip-flops. But the flip-flops keep falling off! The story invites children to help Santa find a way."
+   ],
+   "lang": "en"
+  }
  },
  {
   "id": "headscarf",
@@ -908,7 +937,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=MFWjI4Vv-fI"
    ]
   ],
-  "thumb": "img/thumb-headscarf.jpg"
+  "thumb": "img/thumb-headscarf.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "英文版",
+   "title": "Santa’s Red Headscarf",
+   "intro": [
+    "A gust before the rain blows Santa’s hat away, and a mysterious old woman gives him a gift.",
+    "The story combines the Samsui women’s red headscarf with Santa’s hat, introducing children to this piece of Singapore history."
+   ],
+   "lang": "en"
+  }
  },
  {
   "id": "fat",
@@ -953,7 +992,16 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=LuvWqDrClVI"
    ]
   ],
-  "thumb": "img/thumb-fat.jpg"
+  "thumb": "img/thumb-fat.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "英文版",
+   "title": "Santa Wants to Get Fat",
+   "intro": [
+    "Santa thinks he is too thin to look like Santa. Layers of clothes and stuffing don’t work — then he has an idea…"
+   ],
+   "lang": "en"
+  }
  },
  {
   "id": "gift",
@@ -998,7 +1046,16 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=bNoS2Lml5nc"
    ]
   ],
-  "thumb": "img/thumb-gift.jpg"
+  "thumb": "img/thumb-gift.jpg",
+  "edition": "bilingual",
+  "alt": {
+   "label": "双语版 · 英文介绍",
+   "title": "The Mysterious Christmas Gift",
+   "intro": [
+    "‘I don’t want presents! I don’t want Christmas!’ Why would a child say that? The story helps children find out. English stickers are included for bilingual reading."
+   ],
+   "lang": "en"
+  }
  },
  {
   "id": "reindeer",
@@ -1052,7 +1109,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=Z-Uir0cblqE"
    ]
   ],
-  "thumb": "img/thumb-reindeer.jpg"
+  "thumb": "img/thumb-reindeer.jpg",
+  "edition": "bilingual",
+  "alt": {
+   "label": "双语版 · 英文介绍",
+   "title": "Oh Dear! Santa’s Reindeers Need a Break",
+   "intro": [
+    "‘The reindeer need a break? Then who will pull the sleigh?’ When a teammate needs help, the extra work often makes people grumble.",
+    "The book began when the author saw working women around her treated unfairly for pregnancy and parental leave. It plants a seed of helpfulness: everyone has hard times, and going the extra mile for others costs nothing. English stickers are included for bilingual reading."
+   ],
+   "lang": "en"
+  }
  },
  {
   "id": "pipi",
@@ -1078,6 +1145,10 @@ const BOOKS = [
    [
     "ISBN",
     "978-981-94-4308-6"
+   ],
+   [
+    "英文版",
+    "英文版电子书，线上免费阅读"
    ]
   ],
   "intro": [
@@ -1088,7 +1159,7 @@ const BOOKS = [
   "youtube": "",
   "xhs": "",
   "read": "https://sccl.sg/zh/resources/%E7%94%B5%E5%AD%90%E4%B9%A6/i-want-my-farty-reindeer",
-  "readLabel": "阅读英文版电子书 ↗",
+  "readLabel": "免费阅读英文版电子书 ↗",
   "more": [
    [
     "新书发布会",
@@ -1099,7 +1170,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=X5F35PWh1-0"
    ]
   ],
-  "thumb": "img/thumb-pipi.jpg"
+  "thumb": "img/thumb-pipi.jpg",
+  "freeLabel": "英文版免费",
+  "edition": "zh-en",
+  "alt": {
+   "label": "英文版",
+   "title": "I Want My Farty Reindeer!",
+   "intro": [
+    "This Christmas the children are unhappy, because the reindeer they love have all disappeared. What is going on?"
+   ],
+   "lang": "en"
+  }
  },
  {
   "id": "metoo",
@@ -1878,10 +1959,10 @@ const BOOKS = [
  {
   "id": "cases",
   "group": "teaching",
-  "kind": "2014",
+  "kind": "2014 · 免费电子书",
   "title": "《幼儿园那些事》",
   "en": "Those Things in Kindergarten",
-  "brief": "以真实个案带领幼教老师讨论现场难题。",
+  "brief": "三十六个幼儿园真实个案与讨论问题，免费下载电子书。",
   "tag": "",
   "facts": [
    [
@@ -1890,20 +1971,28 @@ const BOOKS = [
    ],
    [
     "出版",
-    "台南"
+    "台南：奥普特影像视觉设计（纸本初版）"
    ],
    [
     "出版年",
-    "2014"
+    "2014（纸本）· 2026（电子版）"
+   ],
+   [
+    "形式",
+    "免费电子书（繁体中文 PDF）"
    ]
   ],
   "intro": [
-   "以幼儿园现场常见的个案为材料，每个个案后附讨论问题，供师资培育与在职进修使用。"
+   "这本书写于十多年前。为了写它，郑博士在幼儿园里蹲守了很长一段时间，把在现场看到、听到的故事，依议题与理论重新编写，分为家长、儿童、班级经营、课程理念、多元文化与教师六篇，共三十六个个案，每个个案后附讨论问题，供师资培育与在职进修讨论使用。",
+   "十多年过去，幼儿园里会发生的事，本质上并没有改变：家长的担心、孩子的冲突、老师的两难，至今仍在每一间教室里上演。书中有些例子未必适用于新加坡，有些未必适用于中国，但大部分的情境与讨论，依然可以直接借用。",
+   "这一版重新校对后免费开放下载，也作为《幼儿园那些事》新加坡版的催生：新加坡版将以新加坡幼儿园的现场重新改写，慢慢与大家见面。"
   ],
   "cover": "img/cases-cover.jpg",
   "images": [],
   "youtube": "",
   "xhs": "",
+  "read": "ebooks/kindergarten-cases-tw.pdf",
+  "readLabel": "下载免费电子书（PDF）↓",
   "thumb": "img/thumb-cases.jpg"
  },
  {
@@ -2278,16 +2367,27 @@ const BOOKS = [
  }
 ];
 
+window.__dl=null; try{window.claude&&window.claude.use&&window.claude.use('downloads').then(d=>{window.__dl=d;}).catch(()=>{});}catch(e){}
+const ED_LABEL={'zh-en':'中英文出版','bilingual':'双语版'};
+const FREE_LABEL='免费电子书';
+function isFree(b){return /免[费費]电?電?子书?書?|免[费費]電子書|免费电子书|Free e-book/i.test((b.kind||'')+' '+JSON.stringify(b.facts||[]));}
+function kindNode(b,empty,card){const k=el('span','kind');
+  const parts=(b.kind||'').split(/\s*·\s*/).filter(p=>p && !/^(免[费費])?[电電]子[书書]$|^(free )?e-book$/i.test(p));
+  const free=isFree(b)&&!card;
+  if(free){ if(parts.length) k.append(document.createTextNode(parts.join(' · ')+' ')); if(free) k.append(el('span','freebadge',FREE_LABEL)); }
+  else k.textContent=parts.join(' · ')||empty;
+  return k;}
 function el(tag, cls, text){const e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e;}
 
 function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
-      a.append(el('span','kind',b.kind||'\u00a0'), el('h4',null,b.title), el('p',null,b.brief));
+      a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
       (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
-      a.append(el('span','more','看介绍'));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
+      if(isFree(b)||b.freeLabel){a.classList.add('hasfree'); a.append(el('span','freebadge',b.freeLabel||FREE_LABEL));}
+      if(b.edition){a.classList.add('hased'); a.append(el('span','edbadge',ED_LABEL[b.edition]));}
       if(b.fold) a.classList.add('folded');
       shelf.append(a);
     });
@@ -2306,12 +2406,13 @@ function renderDetail(b){
   if(b.cover){const im=new Image(); im.src=b.cover; im.alt=b.title+' 封面'; cov.append(im);}
   else{const ph=el('div','ph t'+(BOOKS.indexOf(b)%3), b.title.replace(/[《》]/g,'')); cov.append(ph);}
   const info=el('div');
-  info.append(el('span','kind',b.kind), el('h2',null,b.title));
+  info.append(kindNode(b,''), el('h2',null,b.title));
   if(b.en) info.append(el('p','en',b.en)); else {const sp=el('div',null); sp.style.height='16px'; info.append(sp);}
   const dl=el('dl','facts'); b.facts.forEach(([k,v])=>dl.append(el('dt',null,k), el('dd',null,v))); info.append(dl);
   const intro=el('div','intro'); b.intro.forEach(t=>intro.append(el('p',null,t))); info.append(intro);
+  if(b.alt){const p=el('div','altpanel'); p.lang=b.alt.lang; p.append(el('p','altlab',b.alt.label), el('h4',null,b.alt.title)); b.alt.intro.forEach(t=>p.append(el('p',null,t))); info.append(p);}
   if(b.tag) info.append(el('span','tag',b.tag));
-  if(b.read){const a=el('a','vbtn',b.readLabel||'阅读免费电子书 ↗'); a.href=b.read; a.target='_blank'; a.rel='noopener'; const vw=el('div','videos'); vw.append(a); info.append(vw);}
+  if(b.read){const a=el('a','vbtn',b.readLabel||'阅读免费电子书 ↗'); a.href=b.read; a.target='_blank'; a.rel='noopener'; if(/\.pdf$/i.test(b.read)){const fn='幼兒園那些事_鄭婉妮_電子版.pdf'; a.setAttribute('download',fn); a.addEventListener('click',e=>{if(!window.__dl) return; e.preventDefault(); fetch(b.read).then(r=>r.blob()).then(blob=>window.__dl.save({filename:fn,data:blob})).catch(()=>{});});} const vw=el('div','videos'); vw.append(a); info.append(vw);}
   if(b.group!=='soon'){
     const v=el('div','videos');
     [['youtube','YouTube 讲故事'],['xhs','小红书 讲故事'],['talk','作者谈创作理念']].forEach(([k,label])=>{
@@ -2369,3 +2470,4 @@ renderShelves(); route(); window.addEventListener('hashchange', route);
 </script>
 </body>
 </html>
+

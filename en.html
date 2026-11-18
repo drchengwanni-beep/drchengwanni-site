@@ -146,6 +146,16 @@ section{padding:56px 0;border-top:1px solid var(--line)}
 .book .kind{font-size:12px;color:var(--muted);letter-spacing:.06em}
 .book h4{margin:0;font-size:17px;line-height:1.5}
 .book p{margin:0;font-size:14px;color:var(--muted);line-height:1.7}
+.freebadge,.edbadge{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:#fff;background:#2F5D3E;border-radius:999px;padding:2px 10px;vertical-align:1px;margin-right:4px}
+.edbadge{background:#7A4E1F}
+.book .freebadge,.book .edbadge{position:absolute;right:88px;bottom:22px;margin:0;font-size:9px;font-weight:600;padding:0 5px;letter-spacing:0;line-height:1.6;border-radius:4px;opacity:.85}
+.book.hased.hasfree .edbadge{bottom:40px}
+
+.altpanel{margin-top:22px;padding:18px 20px;border:1px solid var(--line);border-left:4px solid #7A4E1F;border-radius:10px;background:var(--surface);max-width:40em}
+.altpanel .altlab{font-size:12.5px;font-weight:700;color:#7A4E1F;letter-spacing:.06em;margin:0 0 4px}
+.altpanel h4{margin:0 0 8px;font-size:17px}
+.altpanel p{margin:0 0 10px;color:var(--muted)}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .edbadge{background:#B98A4F;color:#1E221F}:root:not([data-theme="light"]) .freebadge{background:#7FB08E;color:#1E221F}:root:not([data-theme="light"]) .altpanel .altlab{color:#D2B47A}}
 .tag{align-self:flex-start;font-size:12px;padding:2px 10px;border-radius:999px;background:color-mix(in srgb,var(--ochre) 22%,transparent);color:var(--ink);margin-top:4px}
 .playlist{margin:0 0 28px}
 .shelf-title{font-size:15px;font-weight:700;margin:32px 0 12px;color:var(--ink)}
@@ -816,7 +826,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=r6Q6A6X3XwA"
    ]
   ],
-  "thumb": "img/thumb-chimney.jpg"
+  "thumb": "img/thumb-chimney.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "Chinese edition",
+   "title": "《烟囱在哪里呀？》",
+   "intro": [
+    "北方的圣诞老人来到常年如夏的新加坡送礼物，试遍各种入口，就是找不到烟囱。他要怎么进到每个小朋友的家？",
+    "这是圣诞系列的第一本，从新加坡组屋的居住环境出发，写出一本属于新加坡小朋友的圣诞绘本。"
+   ],
+   "lang": "zh-Hans"
+  }
  },
  {
   "id": "flipflops",
@@ -866,7 +886,16 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=B8lzdihfJcY"
    ]
   ],
-  "thumb": "img/thumb-flipflops.jpg"
+  "thumb": "img/thumb-flipflops.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "Chinese edition",
+   "title": "《圣诞老人的人字拖》",
+   "intro": [
+    "圣诞老人这次学聪明了，穿上花衬衫、短裤和人字拖来新加坡。可是拖鞋一直掉、一直掉，该怎么办？故事邀请孩子一起帮圣诞老人想办法。"
+   ],
+   "lang": "zh-Hans"
+  }
  },
  {
   "id": "headscarf",
@@ -909,7 +938,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=MFWjI4Vv-fI"
    ]
   ],
-  "thumb": "img/thumb-headscarf.jpg"
+  "thumb": "img/thumb-headscarf.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "Chinese edition",
+   "title": "《圣诞老人的红头巾》",
+   "intro": [
+    "下雨前的大风吹走了圣诞老人的帽子，一位神秘的老婆婆送给他一份礼物。",
+    "故事把三水阿嬷的红头巾和圣诞帽结合在一起，带孩子认识这段新加坡历史。"
+   ],
+   "lang": "zh-Hans"
+  }
  },
  {
   "id": "fat",
@@ -954,7 +993,16 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=LuvWqDrClVI"
    ]
   ],
-  "thumb": "img/thumb-fat.jpg"
+  "thumb": "img/thumb-fat.jpg",
+  "edition": "zh-en",
+  "alt": {
+   "label": "Chinese edition",
+   "title": "《想要变胖的圣诞老人》",
+   "intro": [
+    "圣诞老爷爷觉得自己太瘦，一点也不像圣诞老人。穿了好多衣服、塞了好多棉花都不行，后来他想到一个方法……"
+   ],
+   "lang": "zh-Hans"
+  }
  },
  {
   "id": "gift",
@@ -999,7 +1047,16 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=bNoS2Lml5nc"
    ]
   ],
-  "thumb": "img/thumb-gift.jpg"
+  "thumb": "img/thumb-gift.jpg",
+  "edition": "bilingual",
+  "alt": {
+   "label": "Bilingual edition · Chinese introduction",
+   "title": "《神秘的圣诞礼物》",
+   "intro": [
+    "“我不想要礼物！我不想过圣诞节！”这个小朋友为什么这样说？故事带孩子一起找答案。书中附英文贴纸，可以双语共读。"
+   ],
+   "lang": "zh-Hans"
+  }
  },
  {
   "id": "reindeer",
@@ -1053,7 +1110,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=Z-Uir0cblqE"
    ]
   ],
-  "thumb": "img/thumb-reindeer.jpg"
+  "thumb": "img/thumb-reindeer.jpg",
+  "edition": "bilingual",
+  "alt": {
+   "label": "Bilingual edition · Chinese introduction",
+   "title": "《啊！驯鹿要请假？》",
+   "intro": [
+    "“啊！驯鹿要请假？那谁来拉雪橇送礼物呢？”同伴需要帮忙时，多出来的工作常让人抱怨。",
+    "创作缘起是作者看到身边的职业妇女因为怀孕、请育婴假而在职场受到为难。故事想在孩子心中种下乐于助人的种子：伙伴难免有不便的时候，多走一步帮助别人，并不吃亏。书中附英文贴纸，可以双语共读。"
+   ],
+   "lang": "zh-Hans"
+  }
  },
  {
   "id": "pipi",
@@ -1079,6 +1146,10 @@ const BOOKS = [
    [
     "ISBN",
     "978-981-94-4308-6"
+   ],
+   [
+    "English edition",
+    "English e-book, free to read online"
    ]
   ],
   "intro": [
@@ -1089,7 +1160,7 @@ const BOOKS = [
   "youtube": "",
   "xhs": "",
   "read": "https://sccl.sg/zh/resources/%E7%94%B5%E5%AD%90%E4%B9%A6/i-want-my-farty-reindeer",
-  "readLabel": "Read the English e-book ↗",
+  "readLabel": "Read the English e-book free ↗",
   "more": [
    [
     "Book launch",
@@ -1100,7 +1171,17 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=X5F35PWh1-0"
    ]
   ],
-  "thumb": "img/thumb-pipi.jpg"
+  "thumb": "img/thumb-pipi.jpg",
+  "freeLabel": "English e-book free",
+  "edition": "zh-en",
+  "alt": {
+   "label": "Chinese edition",
+   "title": "《我要我的屁屁驯鹿！》",
+   "intro": [
+    "今年圣诞节，小朋友们很不开心，因为他们喜欢的驯鹿都不见了。这到底是怎么一回事呢？"
+   ],
+   "lang": "zh-Hans"
+  }
  },
  {
   "id": "metoo",
@@ -1879,10 +1960,10 @@ const BOOKS = [
  {
   "id": "cases",
   "group": "teaching",
-  "kind": "2014",
+  "kind": "2014 · Free e-book",
   "title": "Those Things in Kindergarten",
   "en": "《幼儿园那些事》",
-  "brief": "Real cases that lead preschool teachers through everyday dilemmas.",
+  "brief": "Thirty-six real kindergarten cases with discussion questions; free e-book download.",
   "tag": "",
   "facts": [
    [
@@ -1891,20 +1972,28 @@ const BOOKS = [
    ],
    [
     "Publisher",
-    "Tainan"
+    "Tainan: Output (first print edition)"
    ],
    [
     "Year",
-    "2014"
+    "2014 (print) · 2026 (e-book)"
+   ],
+   [
+    "Format",
+    "Free e-book (Traditional Chinese PDF)"
    ]
   ],
   "intro": [
-   "Built on common kindergarten cases, each followed by discussion questions, for pre-service and in-service teacher education."
+   "Written more than ten years ago, the book grew out of the long stretches Dr Cheng spent observing inside kindergartens. She rewrote the stories she saw and heard there around key issues and theory, in six parts — parents, children, classroom management, curriculum, multicultural education and teachers — 36 cases in all, each followed by discussion questions for teacher education and in-service training.",
+   "A decade on, what happens in kindergartens has not changed in essence: parents’ worries, children’s conflicts and teachers’ dilemmas still play out in every classroom. Some examples may not fit Singapore, and some may not fit China, but most of the situations and discussions still apply.",
+   "This newly proofread edition is free to download, and it is also the starting point for a Singapore edition of the book, which will be rewritten around Singapore’s preschools and released over time."
   ],
   "cover": "img/cases-cover.jpg",
   "images": [],
   "youtube": "",
   "xhs": "",
+  "read": "ebooks/kindergarten-cases-tw.pdf",
+  "readLabel": "Download the free e-book (PDF, in Chinese) ↓",
   "thumb": "img/thumb-cases.jpg"
  },
  {
@@ -2279,16 +2368,27 @@ const BOOKS = [
  }
 ];
 
+window.__dl=null; try{window.claude&&window.claude.use&&window.claude.use('downloads').then(d=>{window.__dl=d;}).catch(()=>{});}catch(e){}
+const ED_LABEL={'zh-en':'Chinese & English editions','bilingual':'Bilingual edition'};
+const FREE_LABEL='Free e-book';
+function isFree(b){return /免[费費]电?電?子书?書?|免[费費]電子書|免费电子书|Free e-book/i.test((b.kind||'')+' '+JSON.stringify(b.facts||[]));}
+function kindNode(b,empty,card){const k=el('span','kind');
+  const parts=(b.kind||'').split(/\s*·\s*/).filter(p=>p && !/^(免[费費])?[电電]子[书書]$|^(free )?e-book$/i.test(p));
+  const free=isFree(b)&&!card;
+  if(free){ if(parts.length) k.append(document.createTextNode(parts.join(' · ')+' ')); if(free) k.append(el('span','freebadge',FREE_LABEL)); }
+  else k.textContent=parts.join(' · ')||empty;
+  return k;}
 function el(tag, cls, text){const e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e;}
 
 function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
-      a.append(el('span','kind',b.kind||'\u00a0'), el('h4',null,b.title), el('p',null,b.brief));
+      a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
      (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
-      a.append(el('span','more','Read more'));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
+      if(isFree(b)||b.freeLabel){a.classList.add('hasfree'); a.append(el('span','freebadge',b.freeLabel||FREE_LABEL));}
+      if(b.edition){a.classList.add('hased'); a.append(el('span','edbadge',ED_LABEL[b.edition]));}
       if(b.fold) a.classList.add('folded');
       shelf.append(a);
     });
@@ -2307,12 +2407,13 @@ function renderDetail(b){
   if(b.cover){const im=new Image(); im.src=b.cover; im.alt=b.title+' cover'; cov.append(im);}
   else{const ph=el('div','ph t'+(BOOKS.indexOf(b)%3), b.title); cov.append(ph);}
   const info=el('div');
-  info.append(el('span','kind',b.kind), el('h2',null,b.title));
+  info.append(kindNode(b,''), el('h2',null,b.title));
   if(b.en) info.append(el('p','en',b.en)); else {const sp=el('div',null); sp.style.height='16px'; info.append(sp);}
   const dl=el('dl','facts'); b.facts.forEach(([k,v])=>dl.append(el('dt',null,k), el('dd',null,v))); info.append(dl);
   const intro=el('div','intro'); b.intro.forEach(t=>intro.append(el('p',null,t))); info.append(intro);
+  if(b.alt){const p=el('div','altpanel'); p.lang=b.alt.lang; p.append(el('p','altlab',b.alt.label), el('h4',null,b.alt.title)); b.alt.intro.forEach(t=>p.append(el('p',null,t))); info.append(p);}
   if(b.tag) info.append(el('span','tag',b.tag));
-  if(b.read){const a=el('a','vbtn',b.readLabel||'Read the free e-book ↗'); a.href=b.read; a.target='_blank'; a.rel='noopener'; const vw=el('div','videos'); vw.append(a); info.append(vw);}
+  if(b.read){const a=el('a','vbtn',b.readLabel||'Read the free e-book ↗'); a.href=b.read; a.target='_blank'; a.rel='noopener'; if(/\.pdf$/i.test(b.read)){const fn='幼兒園那些事_鄭婉妮_電子版.pdf'; a.setAttribute('download',fn); a.addEventListener('click',e=>{if(!window.__dl) return; e.preventDefault(); fetch(b.read).then(r=>r.blob()).then(blob=>window.__dl.save({filename:fn,data:blob})).catch(()=>{});});} const vw=el('div','videos'); vw.append(a); info.append(vw);}
   if(b.group!=='soon'){
     const v=el('div','videos');
     [['youtube','Storytelling on YouTube'],['xhs','Storytelling on Xiaohongshu'],['talk','The author on the book']].forEach(([k,label])=>{
@@ -2370,3 +2471,4 @@ renderShelves(); route(); window.addEventListener('hashchange', route);
 </script>
 </body>
 </html>
+
