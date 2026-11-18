@@ -139,6 +139,10 @@ section{padding:56px 0;border-top:1px solid var(--line)}
 
 .shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 .book{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px;display:flex;flex-direction:column;gap:6px}
+.book{position:relative}.book.hascov{padding-bottom:92px}.book.hascov .more{position:absolute;right:90px;bottom:20px;margin:0;padding:0}
+.bcov{position:absolute;right:14px;bottom:14px;width:66px;height:66px;border-radius:50%;overflow:hidden;background:var(--paper);box-shadow:0 0 0 3px var(--surface),0 2px 8px rgba(0,0,0,.18);transition:transform .2s}
+.bcov img{width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block}
+.book:hover .bcov{transform:scale(1.08)}
 .book .kind{font-size:12px;color:var(--muted);letter-spacing:.06em}
 .book h4{margin:0;font-size:17px;line-height:1.5}
 .book p{margin:0;font-size:14px;color:var(--muted);line-height:1.7}
@@ -2209,6 +2213,7 @@ function renderShelves(){
       a.append(el('span','kind',b.kind||'\u00a0'), el('h4',null,b.title), el('p',null,b.brief));
      (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       a.append(el('span','more','Read more'));
+      if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.cover; im.alt=''; im.loading='lazy'; c.append(im); a.append(c);}
       if(b.fold) a.classList.add('folded');
       shelf.append(a);
     });
