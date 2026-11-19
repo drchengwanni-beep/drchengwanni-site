@@ -381,6 +381,7 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .settable .sy::after{content:'　'}
 .settable .so{font-size:13px;margin-top:2px}
 }
+.setvideo{max-width:720px;margin:0 0 32px}.setvideo figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -1955,7 +1956,11 @@ const BOOKS = [
     "isbn": "978-981-11-6243-5",
     "note": "教案與評量的英文版"
    }
-  ]
+  ],
+  "video": {
+   "id": "rKdPbL_rB3U",
+   "caption": "2016.06　《來！來過節》學前節慶教學資源發布會，由教育部兼貿工部政務次長劉燕玲主持推介（影片：新加坡華文教研中心）"
+  }
  },
  {
   "id": "festival-en",
@@ -2588,6 +2593,14 @@ function renderDetail(b){
     b.set.forEach(r=>{const tr=el('tr'); const c=el('td','sc'); if(r.img){const im=new Image(); im.src=r.img; im.alt=r.name; im.loading='lazy'; c.append(im);} else c.append(el('span','noimg','—'));
       tr.append(c, el('td','sn',r.name), el('td','sy',r.year), el('td','si',r.isbn||'—'), el('td','so',r.note)); t.append(tr);});
     const w=el('div','setwrap'); w.append(t); d.append(w);
+  }
+  if(b.video){
+    const f=el('figure','setvideo'); const v=el('div','ytlite'); v.setAttribute('role','button'); v.tabIndex=0; v.setAttribute('aria-label','播放影片');
+    const im=new Image(); im.src='https://i.ytimg.com/vi/'+b.video.id+'/hqdefault.jpg'; im.alt=b.video.caption; im.style.aspectRatio='16/9'; im.loading='lazy';
+    v.append(im, el('span','ytplay'));
+    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://www.youtube-nocookie.com/embed/'+b.video.id+'?autoplay=1'; fr.title=b.video.caption; fr.allow='autoplay; encrypted-media; picture-in-picture'; fr.allowFullscreen=true; fr.style.cssText='width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block'; v.replaceWith(fr);};
+    v.addEventListener('click',play); v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+    f.append(v, el('figcaption',null,b.video.caption)); d.append(f);
   }
   if(b.images.length){
     d.append(el('h3',null,'書中圖畫'));
