@@ -395,6 +395,8 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 @media (max-width:600px){.book.wide{padding:14px 16px;gap:14px;align-items:flex-start}.book.wide .bcov{width:62px;height:62px}}
 @media (min-width:761px){.shelf.trio[data-group="teaching"]{grid-template-columns:repeat(6,minmax(0,1fr))}.shelf.trio[data-group="teaching"]>.book{grid-column:span 2}.shelf.trio[data-group="teaching"]>.book.wide{grid-column:1/-1}.shelf.trio[data-group="teaching"]>.book:nth-last-child(-n+2){grid-column:span 3}}
 .settable .sn a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.wcovs{display:flex;flex:none}.wcovs .bcov+.bcov{margin-left:-22px}
+@media (max-width:600px){.wcovs .bcov+.bcov{margin-left:-18px}.book.wide{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
@@ -2012,7 +2014,11 @@ const BOOKS = [
     "wide": true
    }
   ],
-  "wide": true
+  "wide": true,
+  "wideThumbs": [
+   "img/thumb-festival.jpg",
+   "img/thumb-festival-en.jpg"
+  ]
  },
  {
   "id": "festival-en",
@@ -2600,7 +2606,7 @@ function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group && !b.hidden).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
-      if(b.wide){ a.className='book hascov wide'; const cv=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; cv.append(im); const tx=el('div','wtxt'); tx.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief)); a.append(cv,tx); shelf.append(a); return; }
+      if(b.wide){ a.className='book hascov wide'; const cv=el('span','wcovs'); (b.wideThumbs||[b.thumb||b.cover]).forEach(src=>{const c1=el('span','bcov'); const im=new Image(); im.src=src; im.alt=''; im.loading='lazy'; c1.append(im); cv.append(c1);}); const tx=el('div','wtxt'); tx.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief)); a.append(cv,tx); shelf.append(a); return; }
       a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
       (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
