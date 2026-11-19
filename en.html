@@ -403,6 +403,7 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .book.wide.split .wpart:hover h4{color:var(--accent)}
 @media (max-width:760px){.book.wide.split{grid-template-columns:1fr}.book.wide.split .wpart+.wpart{border-left:0;border-top:1px dashed var(--line)}.book.wide.split .wpart{padding:18px;gap:16px}.book.wide h4{font-size:17px}.book.wide .wtxt p{font-size:14px;line-height:1.7}.book.wide .bcov{width:72px;height:72px}}
 .book.wide .wtxt{text-decoration:none;color:inherit}.book.wide a.bcov{display:block;transition:transform .2s}.book.wide a.bcov:hover{transform:scale(1.06)}.book.wide .wtxt:hover h4{color:var(--accent)}
+.dpress{margin:4px 0 18px;padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px}.dpress .dplab{margin:0 0 6px;font-size:13px;color:var(--muted)}.dpress ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}.dpress li{display:flex;gap:12px;font-size:14.5px;line-height:1.6}.dpress time{flex:none;color:var(--muted);font-variant-numeric:tabular-nums}.dpress a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
 </style>
 <style>:root{--display:"Newsreader",Georgia,serif}.hero .en,.sechead span,.pillar h3 small{display:none}.dgrid .en{font-family:var(--body);font-style:normal}</style>
 </head>
@@ -2031,6 +2032,23 @@ const BOOKS = [
     "img/thumb-festival-en.jpg",
     "festival-en"
    ]
+  ],
+  "press": [
+   [
+    "2016.06",
+    "Lianhe Zaobao: SCCL Launches Local Festival Teaching Materials — Helping Children Understand the Festivals of Every Community",
+    "img/press/2016-06-zb-page.jpg"
+   ],
+   [
+    "2016.06",
+    "Lianhe Wanbao: SCCL Launches Local Festival Teaching Materials",
+    "https://www.zaobao.com.sg/realtime/singapore/story20160618-630640"
+   ],
+   [
+    "2016.06",
+    "Shin Min Daily News: New materials help children learn about local festivals",
+    "img/press/2016-b.jpg"
+   ]
   ]
  },
  {
@@ -2649,6 +2667,7 @@ function renderDetail(b){
   if(b.en) info.append(el('p','en',b.en)); else {const sp=el('div',null); sp.style.height='16px'; info.append(sp);}
   const dl=el('dl','facts'); b.facts.forEach(([k,v])=>dl.append(el('dt',null,k), el('dd',null,v))); info.append(dl);
   const intro=el('div','intro'); b.intro.forEach(t=>intro.append(el('p',null,t))); info.append(intro);
+  if(b.press){const pr=el('div','dpress'); pr.append(el('p','dplab','Press coverage')); const ul=el('ul'); b.press.forEach(([t,label,u])=>{const li=el('li'); li.append(el('time',null,t)); const a=el('a',null,label); a.href=u; a.target='_blank'; a.rel='noopener'; li.append(a); ul.append(li);}); pr.append(ul); info.append(pr);}
   if(b.alt){const p=el('div','altpanel'); p.lang=b.alt.lang; p.append(el('p','altlab',b.alt.label), el('h4',null,b.alt.title)); b.alt.intro.forEach(t=>p.append(el('p',null,t))); info.append(p);}
   if(b.tag) info.append(el('span','tag',b.tag));
   if(b.read){const a=el('a','vbtn',b.readLabel||'Read the free e-book ↗'); a.href=b.read; a.target='_blank'; a.rel='noopener'; if(/\.pdf$/i.test(b.read)){const fn='幼兒園那些事_鄭婉妮_電子版.pdf'; a.setAttribute('download',fn); a.addEventListener('click',e=>{if(!window.__dl) return; e.preventDefault(); fetch(b.read).then(r=>r.blob()).then(blob=>window.__dl.save({filename:fn,data:blob})).catch(()=>{});});} const vw=el('div','videos'); vw.append(a); info.append(vw);}
