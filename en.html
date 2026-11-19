@@ -2666,8 +2666,7 @@ function renderDetail(b){
     v.append(im, el('span','ytplay'));
     const play=()=>{const fr=document.createElement('iframe'); fr.src='https://www.youtube-nocookie.com/embed/'+b.video.id+'?autoplay=1'; fr.title=b.video.caption; fr.allow='autoplay; encrypted-media; picture-in-picture'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block'; v.replaceWith(fr);};
     v.addEventListener('click',play); v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-    const lk=el('a','vbtn','Watch on YouTube ↗'); lk.href='https://www.youtube.com/watch?v='+b.video.id; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
-    f.append(v, el('figcaption',null,b.video.caption), lw); d.append(f);
+    f.append(v, el('figcaption',null,b.video.caption)); d.append(f);
   }
   if(b.prezi){
     const f=el('figure','setvideo'); const v=el('div','ytlite'); v.setAttribute('role','button'); v.tabIndex=0; v.setAttribute('aria-label','Open presentation');
@@ -2676,8 +2675,7 @@ function renderDetail(b){
     const url='https://prezi.com/'+b.prezi.id+'/';
     const play=()=>{const fr=document.createElement('iframe'); fr.src='https://prezi.com/p/'+b.prezi.id+'/embed/'; fr.title=b.prezi.caption; fr.allow='autoplay; fullscreen'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/10;border:0;border-radius:8px;display:block;background:#fff'; v.replaceWith(fr);};
     v.addEventListener('click',play); v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-    const lk=el('a','vbtn','View on Prezi ↗'); lk.href=url; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
-    f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);
+    f.append(v, el('figcaption',null,b.prezi.caption)); d.append(f);
   }
  (b.galleries||[]).forEach(g=>{
     d.append(el('h3',null,g.title));
