@@ -387,13 +387,7 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .gallery.wide{grid-template-columns:1fr;margin-top:12px}.gallery.wide img{border:0}
 #detail h3 + .gallery{margin-top:12px}
 
-.book.featured{grid-column:1/-1;display:grid;grid-template-columns:96px minmax(0,1fr);gap:22px;align-items:center;padding:22px 26px;border-style:solid;border-left:4px solid var(--ochre)}
-.book.featured h4{font-size:20px;margin:2px 0 4px}
-.book.featured p{margin:0;line-height:1.8}
-.book.featured .fuse{margin-top:8px;color:var(--ink);font-weight:500}
-.fcov{width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--paper);box-shadow:0 0 0 3px var(--surface),0 2px 8px rgba(0,0,0,.18)}
-.fcov img{width:100%;height:100%;object-fit:cover;display:block}
-@media (max-width:600px){.book.featured{grid-template-columns:64px minmax(0,1fr);gap:14px;padding:16px;align-items:start}.fcov{width:64px;height:64px}.book.featured h4{font-size:17px}}
+@media (min-width:761px){.shelf.trio{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -585,8 +579,11 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
     <div class="shelf" data-group="xiaogua"></div>
     <div class="shelf-title">5E 绘本系列 · 李光耀双语基金</div>
     <div class="shelf" data-group="5e"></div>
+    <div class="shelf-title">《来！来过节》节庆教材开发 · 2016–2018</div>
+    <p class="shelf-note">郑博士 2015 年来到新加坡后主导开发的一整套学前节庆课程资源。出版后，PCF 幼儿园采购了三百多套，全新加坡超过五百所幼儿园采用；其后中心再将剩余教材赠予全国幼儿园，影响遍及新加坡学前华文课堂。</p>
+    <div class="shelf trio" data-group="festival"></div>
     <div class="shelf-title">教学专书</div>
-    <div class="shelf" data-group="teaching"></div>
+    <div class="shelf trio" data-group="teaching"></div>
     <div class="shelf-title">大学教材</div>
     <p class="shelf-note">新跃社科大学幼儿教育与华文教育学士课程（BECCE）中由本中心承担的课程，历年教材均由郑博士督导与审改。</p>
     <div class="shelf" data-group="textbook"></div>
@@ -1890,7 +1887,7 @@ const BOOKS = [
  },
  {
   "id": "festival",
-  "group": "teaching",
+  "group": "festival",
   "kind": "2016–2018 · 整套",
   "title": "《来！来过节》节庆教材开发",
   "en": "Come, Let's Celebrate! Festival Teaching Resources",
@@ -2010,10 +2007,26 @@ const BOOKS = [
     "wide": true
    }
   ],
-  "feature": {
-   "lead": "郑博士 2015 年来到新加坡后主导开发，2015 年底完成、2016 年发布，涵盖十三个节日的教案、评量、教材与幼儿手作本。",
-   "use": "出版后，PCF 幼儿园采购了三百多套，全新加坡超过五百所幼儿园采用；其后中心再将剩余教材赠予全国幼儿园，影响遍及新加坡学前华文课堂。"
-  }
+  "parts": [
+   {
+    "kind": "2016–2018",
+    "title": "教案与评量",
+    "brief": "第一版教案、教案与评量及英文版，涵盖十三个节日。",
+    "thumb": "img/thumb-festival.jpg"
+   },
+   {
+    "kind": "2017",
+    "title": "幼儿互动手作本",
+    "brief": "上下两册，可重复使用的节庆场景与 3D 手作。",
+    "thumb": "img/thumb-festival-art.jpg"
+   },
+   {
+    "kind": "2016",
+    "title": "节庆教材",
+    "brief": "布景十幕与近百个节庆元素，供讲故事与角色扮演。",
+    "thumb": "img/thumb-festival-kit.jpg"
+   }
+  ]
  },
  {
   "id": "festival-en",
@@ -2600,10 +2613,7 @@ function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
-      if(b.feature){ a.className='book featured'; const F=b.feature;
-        const c=el('span','fcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; c.append(im);
-        const txt=el('div','ftxt'); txt.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,F.lead), el('p','fuse',F.use));
-        a.append(c,txt); shelf.append(a); return; }
+      if(b.parts){ b.parts.forEach(pt=>{const c=el('a','book hascov'); c.href='#book-'+b.id; const k=el('p','kind',pt.kind); c.append(k, el('h4',null,pt.title), el('p',null,pt.brief)); const cv=el('span','bcov'); const im=new Image(); im.src=pt.thumb; im.alt=''; im.loading='lazy'; cv.append(im); c.append(cv); shelf.append(c);}); return; }
       a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
       (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}

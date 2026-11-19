@@ -387,13 +387,7 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .gallery.wide{grid-template-columns:1fr;margin-top:12px}.gallery.wide img{border:0}
 #detail h3 + .gallery{margin-top:12px}
 
-.book.featured{grid-column:1/-1;display:grid;grid-template-columns:96px minmax(0,1fr);gap:22px;align-items:center;padding:22px 26px;border-style:solid;border-left:4px solid var(--ochre)}
-.book.featured h4{font-size:20px;margin:2px 0 4px}
-.book.featured p{margin:0;line-height:1.8}
-.book.featured .fuse{margin-top:8px;color:var(--ink);font-weight:500}
-.fcov{width:96px;height:96px;border-radius:50%;overflow:hidden;background:var(--paper);box-shadow:0 0 0 3px var(--surface),0 2px 8px rgba(0,0,0,.18)}
-.fcov img{width:100%;height:100%;object-fit:cover;display:block}
-@media (max-width:600px){.book.featured{grid-template-columns:64px minmax(0,1fr);gap:14px;padding:16px;align-items:start}.fcov{width:64px;height:64px}.book.featured h4{font-size:17px}}
+@media (min-width:761px){.shelf.trio{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 <style>:root{--display:"Newsreader",Georgia,serif}.hero .en,.sechead span,.pillar h3 small{display:none}.dgrid .en{font-family:var(--body);font-style:normal}</style>
 </head>
@@ -586,8 +580,11 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
     <div class="shelf" data-group="xiaogua"></div>
     <div class="shelf-title">The 5E Project: Development of Add-on Children’s Picture Books · Lee Kuan Yew Fund for Bilingualism</div>
     <div class="shelf" data-group="5e"></div>
+    <div class="shelf-title">Come, Let’s Celebrate! festival teaching resources · 2016–2018</div>
+    <p class="shelf-note">A full set of preschool festival curriculum resources developed under Dr Cheng’s lead after she arrived in Singapore in 2015. After publication, PCF kindergartens bought more than 300 sets and over 500 kindergartens across Singapore adopted it; the Centre later gave the remaining kits to kindergartens nationwide, so the set reached preschool Chinese classrooms throughout Singapore.</p>
+    <div class="shelf trio" data-group="festival"></div>
     <div class="shelf-title">Books for teachers</div>
-    <div class="shelf" data-group="teaching"></div>
+    <div class="shelf trio" data-group="teaching"></div>
     <div class="shelf-title">University textbooks</div>
     <p class="shelf-note">For the courses SCCL delivers in the SUSS Bachelor of Early Childhood and Chinese Language Education (BECCE), every set of course materials has been supervised, reviewed and revised by Dr Cheng.</p>
     <div class="shelf" data-group="textbook"></div>
@@ -1891,7 +1888,7 @@ const BOOKS = [
  },
  {
   "id": "festival",
-  "group": "teaching",
+  "group": "festival",
   "kind": "2016–2018 · Full set",
   "title": "Come, Let’s Celebrate! Festival Teaching Resources",
   "en": "《来！来过节》节庆教材开发",
@@ -2011,10 +2008,26 @@ const BOOKS = [
     "wide": true
    }
   ],
-  "feature": {
-   "lead": "Developed under Dr Cheng’s lead after she arrived in Singapore in 2015; completed at the end of 2015 and launched in 2016, covering lesson plans, assessment, a teaching kit and children’s craft books for thirteen festivals.",
-   "use": "After publication, PCF kindergartens bought more than 300 sets and over 500 kindergartens across Singapore adopted it; the Centre later gave the remaining kits to kindergartens nationwide, so the set reached preschool Chinese classrooms throughout Singapore."
-  }
+  "parts": [
+   {
+    "kind": "2016–2018",
+    "title": "Lesson plans and assessment",
+    "brief": "First-edition lesson plans, the edition with assessment, and the English edition, covering thirteen festivals.",
+    "thumb": "img/thumb-festival.jpg"
+   },
+   {
+    "kind": "2017",
+    "title": "Interactive art book",
+    "brief": "Two volumes of reusable festival scenes and 3D crafts.",
+    "thumb": "img/thumb-festival-art.jpg"
+   },
+   {
+    "kind": "2016",
+    "title": "Festival teaching kit",
+    "brief": "Ten backdrops and nearly 100 festival elements for storytelling and role-play.",
+    "thumb": "img/thumb-festival-kit.jpg"
+   }
+  ]
  },
  {
   "id": "festival-en",
@@ -2601,10 +2614,7 @@ function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
-      if(b.feature){ a.className='book featured'; const F=b.feature;
-        const c=el('span','fcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; c.append(im);
-        const txt=el('div','ftxt'); txt.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,F.lead), el('p','fuse',F.use));
-        a.append(c,txt); shelf.append(a); return; }
+      if(b.parts){ b.parts.forEach(pt=>{const c=el('a','book hascov'); c.href='#book-'+b.id; const k=el('p','kind',pt.kind); c.append(k, el('h4',null,pt.title), el('p',null,pt.brief)); const cv=el('span','bcov'); const im=new Image(); im.src=pt.thumb; im.alt=''; im.loading='lazy'; cv.append(im); c.append(cv); shelf.append(c);}); return; }
       a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
      (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
