@@ -388,6 +388,10 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 #detail h3 + .gallery{margin-top:12px}
 
 @media (min-width:761px){.shelf.trio{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.book.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:20px;padding:20px 22px}
+.book.wide .bcov{position:static;flex:none;width:80px;height:80px;transform:none}
+.book.wide .wtxt{display:flex;flex-direction:column;gap:4px}
+@media (max-width:600px){.book.wide{padding:14px 16px;gap:14px;align-items:flex-start}.book.wide .bcov{width:62px;height:62px}}
 </style>
 </head>
 <body>
@@ -579,9 +583,6 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
     <div class="shelf" data-group="xiaogua"></div>
     <div class="shelf-title">5E 繪本系列 · 李光耀雙語基金</div>
     <div class="shelf" data-group="5e"></div>
-    <div class="shelf-title">《來！來過節》節慶教材開發 · 2016–2018</div>
-    <p class="shelf-note">鄭博士 2015 年來到新加坡後主導開發的一整套學前節慶課程資源。出版後，PCF 幼兒園採購了三百多套，全新加坡超過五百所幼兒園採用；其後中心再將剩餘教材贈予全國幼兒園，影響遍及新加坡學前華文課堂。</p>
-    <div class="shelf trio" data-group="festival"></div>
     <div class="shelf-title">教學專書</div>
     <div class="shelf trio" data-group="teaching"></div>
     <div class="shelf-title">大學教材</div>
@@ -1887,11 +1888,11 @@ const BOOKS = [
  },
  {
   "id": "festival",
-  "group": "festival",
+  "group": "teaching",
   "kind": "2016–2018 · 整套",
   "title": "《來！來過節》節慶教材開發",
   "en": "Come, Let's Celebrate! Festival Teaching Resources",
-  "brief": "一整套學前節慶教學資源：教案、教案與評量、幼兒互動手作本（上下冊）與節慶教材。",
+  "brief": "鄭博士主導開發的一整套學前節慶課程資源：教案與評量、幼兒互動手作本與節慶教材。",
   "tag": "",
   "facts": [
    [
@@ -1910,7 +1911,7 @@ const BOOKS = [
   "intro": [
    "《來！來過節》是鄭博士主導開發的一套學前節慶課程資源。2015 年鄭博士來到新加坡，隨即察覺多元族群的節慶與幼兒華文課堂之間存在落差：許多教師並不熟悉其他族群的文化，備課時缺乏可以依循的資料。這套資源於 2015 年底完成、2016 年正式發布，可視為新加坡華文教研中心推動教師跨文化適應與在地化的第一步。",
    "開發團隊將十三個節日的教學元素抽取出來，讓教師設計活動時有所依據：知道節日的由來，知道可以搭配哪些手作，知道教案可以往哪些方向延伸，也知道如何評量。十多年前，網絡資源有限，更沒有人工智能可以協助，對不熟悉這些文化的教師而言，自行準備節慶教學相當吃力；《來！來過節》正是為此所做的嘗試。",
-   "出版後，PCF 幼兒園採購了三百多套，全新加坡超過五百所幼兒園採用；其後中心再將剩餘教材贈予全國幼兒園，影響遍及新加坡學前華文課堂。"
+   "教材出版後，PCF 幼兒園全系列採購，每一所園所都有一套；全新加坡使用這套教材的幼兒園超過五百所。之後中心搬遷時，將當年印製的約一千套節慶教材與五千套手作本免費送出，贈予新加坡各幼兒園與一般民眾，推廣在地化的節慶教學。這是中心推動在地化的一個重要里程碑。"
   ],
   "cover": "img/festival-cover.jpg",
   "images": [],
@@ -2007,26 +2008,7 @@ const BOOKS = [
     "wide": true
    }
   ],
-  "parts": [
-   {
-    "kind": "2016–2018",
-    "title": "教案與評量",
-    "brief": "第一版教案、教案與評量及英文版，涵蓋十三個節日。",
-    "thumb": "img/thumb-festival.jpg"
-   },
-   {
-    "kind": "2017",
-    "title": "幼兒互動手作本",
-    "brief": "上下兩冊，可重複使用的節慶場景與 3D 手作。",
-    "thumb": "img/thumb-festival-art.jpg"
-   },
-   {
-    "kind": "2016",
-    "title": "節慶教材",
-    "brief": "佈景十幕與近百個節慶元素，供講故事與角色扮演。",
-    "thumb": "img/thumb-festival-kit.jpg"
-   }
-  ]
+  "wide": true
  },
  {
   "id": "festival-en",
@@ -2613,7 +2595,7 @@ function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
-      if(b.parts){ b.parts.forEach(pt=>{const c=el('a','book hascov'); c.href='#book-'+b.id; const k=el('p','kind',pt.kind); c.append(k, el('h4',null,pt.title), el('p',null,pt.brief)); const cv=el('span','bcov'); const im=new Image(); im.src=pt.thumb; im.alt=''; im.loading='lazy'; cv.append(im); c.append(cv); shelf.append(c);}); return; }
+      if(b.wide){ a.className='book hascov wide'; const cv=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; cv.append(im); const tx=el('div','wtxt'); tx.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief)); a.append(cv,tx); shelf.append(a); return; }
       a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
       (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
