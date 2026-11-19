@@ -360,6 +360,27 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .ecocite,.papercite{font-size:13.5px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
 .ecotext .ecocite{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
 .papercite{margin:6px 0 0;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;max-width:46em}
+
+.setwrap{overflow-x:auto;margin:8px 0 28px}
+.settable{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.settable th{text-align:left;font-weight:600;color:var(--muted);font-size:13px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.settable td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.settable tr:last-child td{border-bottom:0}
+.settable .sc{width:76px}.settable .sc img{width:60px;height:auto;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.15);display:block}
+.settable .noimg{display:inline-block;width:60px;text-align:center;color:var(--line)}
+.settable .sn{font-weight:600}.settable .sy,.settable .si{white-space:nowrap;font-variant-numeric:tabular-nums}
+.settable .so{color:var(--muted)}
+@media (max-width:640px){
+.settable,.settable tbody{display:block}.settable tr:first-child{display:none}
+.settable tr{display:grid;grid-template-columns:56px 1fr;column-gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.settable tr:last-child{border-bottom:0}
+.settable td{display:block;padding:0;border:0}
+.settable .sc{grid-row:1/span 4;width:auto}.settable .sc img{width:52px}
+.settable .sn{font-size:14.5px;line-height:1.5}
+.settable .sy,.settable .si{display:inline;font-size:13px;color:var(--muted)}
+.settable .sy::after{content:'　'}
+.settable .so{font-size:13px;margin-top:2px}
+}
 </style>
 <style>:root{--display:"Newsreader",Georgia,serif}.hero .en,.sechead span,.pillar h3 small{display:none}.dgrid .en{font-family:var(--body);font-style:normal}</style>
 </head>
@@ -1873,35 +1894,69 @@ const BOOKS = [
     "NTU-SCCL Press"
    ],
    [
-    "First-edition lesson plans",
-    "2016, Preschool Teaching Activities for Festivals of Singapore (Singapore colour special edition), ISBN 978-981-09-8925-5"
-   ],
-   [
-    "Lesson plans and assessment",
-    "2017, Come, Let’s Celebrate! Preschool Teaching Activities and Evaluation for Festivals of Singapore (Chinese), ISBN 978-981-11-1765-7"
-   ],
-   [
-    "Interactive art book",
-    "2017, Book A ISBN 978-981-11-2847-9; Book B ISBN 978-981-11-2848-6"
-   ],
-   [
-    "Festival teaching kit",
-    "2016, Come, Let’s Celebrate! festival teaching kit: six medium and four large backdrops, plus nearly 100 festival elements"
-   ],
-   [
-    "English edition",
-    "2018, Come, Let’s Celebrate!, ISBN 978-981-11-6243-5"
+    "Year",
+    "2016–2018"
    ]
   ],
   "intro": [
-   "Come, Let’s Celebrate! is not a single book but a full set of preschool festival-teaching resources developed under Dr Cheng’s lead, covering thirteen festivals of Singapore’s communities.",
-   "The first-edition lesson plans were published in 2016, together with a matching teaching kit of classroom backdrops and nearly 100 festival elements for storytelling, role-play and language games. In 2017 came the edition with assessment, built on Tyler’s objectives model, adding assessment suggestions to every lesson plan, along with a two-volume interactive art book in which children experience festivals through reusable scenes and 3D crafts. An English edition followed in 2018."
+   "Come, Let’s Celebrate! is a full set of preschool festival-teaching resources developed under Dr Cheng’s lead, covering thirteen festivals of Singapore’s communities, from lesson plans and assessment to a teaching kit and children’s craft books."
   ],
   "cover": "img/festival-cover.jpg",
   "images": [],
   "youtube": "",
   "xhs": "",
-  "thumb": "img/thumb-festival.jpg"
+  "thumb": "img/thumb-festival.jpg",
+  "set": [
+   {
+    "img": "img/festival-set-1st.jpg",
+    "name": "Preschool Teaching Activities for Festivals of Singapore (first edition, Singapore colour special edition)",
+    "year": "2016",
+    "isbn": "978-981-09-8925-5",
+    "note": "Lesson plans for thirteen festivals"
+   },
+   {
+    "img": "img/festival-set-1st-tw.jpg",
+    "name": "Preschool Teaching Activities for Festivals of Singapore (Taipei edition)",
+    "year": "2016",
+    "isbn": "978-1-62503-279-9",
+    "note": "EHGBooks, Taipei"
+   },
+   {
+    "img": "",
+    "name": "Festival teaching kit",
+    "year": "2016",
+    "isbn": "",
+    "note": "Six medium and four large backdrops, nearly 100 festival elements"
+   },
+   {
+    "img": "img/festival-cover.jpg",
+    "name": "Preschool Teaching Activities and Evaluation for Festivals of Singapore (Chinese)",
+    "year": "2017",
+    "isbn": "978-981-11-1765-7",
+    "note": "Assessment suggestions for every lesson plan, based on Tyler’s objectives model"
+   },
+   {
+    "img": "",
+    "name": "Preschool Interactive Art Book A",
+    "year": "2017",
+    "isbn": "978-981-11-2847-9",
+    "note": "Reusable festival scenes and 3D crafts"
+   },
+   {
+    "img": "",
+    "name": "Preschool Interactive Art Book B",
+    "year": "2017",
+    "isbn": "978-981-11-2848-6",
+    "note": "Reusable festival scenes and 3D crafts"
+   },
+   {
+    "img": "img/festival-en-cover.jpg",
+    "name": "Come, Let’s Celebrate! (English edition)",
+    "year": "2018",
+    "isbn": "978-981-11-6243-5",
+    "note": "English edition of the lesson plans with assessment"
+   }
+  ]
  },
  {
   "id": "festival-en",
@@ -2528,6 +2583,13 @@ function renderDetail(b){
     info.append(v);
   }
   grid.append(cov,info); d.append(grid);
+  if(b.set){
+    d.append(el('h3',null,'What’s in the set'));
+    const t=el('table','settable'); const th=el('tr'); ['Cover','Item','Year','ISBN','Contents'].forEach(h=>th.append(el('th',null,h))); t.append(th);
+    b.set.forEach(r=>{const tr=el('tr'); const c=el('td','sc'); if(r.img){const im=new Image(); im.src=r.img; im.alt=r.name; im.loading='lazy'; c.append(im);} else c.append(el('span','noimg','—'));
+      tr.append(c, el('td','sn',r.name), el('td','sy',r.year), el('td','si',r.isbn||'—'), el('td','so',r.note)); t.append(tr);});
+    const w=el('div','setwrap'); w.append(t); d.append(w);
+  }
   if(b.images.length){
     d.append(el('h3',null,'Inside the book'));
     const g=el('div','gallery'); b.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=b.title+' inside spread'; g.append(im);}); d.append(g);

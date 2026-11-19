@@ -360,6 +360,27 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .ecocite,.papercite{font-size:13.5px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere}
 .ecotext .ecocite{margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
 .papercite{margin:6px 0 0;padding:16px 18px;background:var(--surface);border:1px solid var(--line);border-radius:10px;max-width:46em}
+
+.setwrap{overflow-x:auto;margin:8px 0 28px}
+.settable{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.settable th{text-align:left;font-weight:600;color:var(--muted);font-size:13px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.settable td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+.settable tr:last-child td{border-bottom:0}
+.settable .sc{width:76px}.settable .sc img{width:60px;height:auto;border-radius:4px;box-shadow:0 2px 6px rgba(0,0,0,.15);display:block}
+.settable .noimg{display:inline-block;width:60px;text-align:center;color:var(--line)}
+.settable .sn{font-weight:600}.settable .sy,.settable .si{white-space:nowrap;font-variant-numeric:tabular-nums}
+.settable .so{color:var(--muted)}
+@media (max-width:640px){
+.settable,.settable tbody{display:block}.settable tr:first-child{display:none}
+.settable tr{display:grid;grid-template-columns:56px 1fr;column-gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.settable tr:last-child{border-bottom:0}
+.settable td{display:block;padding:0;border:0}
+.settable .sc{grid-row:1/span 4;width:auto}.settable .sc img{width:52px}
+.settable .sn{font-size:14.5px;line-height:1.5}
+.settable .sy,.settable .si{display:inline;font-size:13px;color:var(--muted)}
+.settable .sy::after{content:'　'}
+.settable .so{font-size:13px;margin-top:2px}
+}
 </style>
 </head>
 <body>
@@ -1872,35 +1893,69 @@ const BOOKS = [
     "南大—新加坡華文教研中心出版社"
    ],
    [
-    "第一版教案",
-    "2016《新加坡學前節慶教案》（新加坡彩色特別發行版），ISBN 978-981-09-8925-5"
-   ],
-   [
-    "教案與評量",
-    "2017《來！來過節：新加坡學前節慶教案與評量》，ISBN 978-981-11-1765-7"
-   ],
-   [
-    "幼兒互動手作本",
-    "2017 上冊 ISBN 978-981-11-2847-9；下冊 ISBN 978-981-11-2848-6"
-   ],
-   [
-    "節慶教材",
-    "2016《來！來過節：新加坡學前節慶教材》：中型佈景六幕、大型佈景四幕，以及近百個節慶元素"
-   ],
-   [
-    "英文版",
-    "2018 Come, Let's Celebrate!，ISBN 978-981-11-6243-5"
+    "出版年",
+    "2016–2018"
    ]
   ],
   "intro": [
-   "《來！來過節》不是單一本書，而是鄭博士主導開發的一整套學前節慶教學資源，涵蓋新加坡各族群的十三個節日。",
-   "第一版《新加坡學前節慶教案》於 2016 年出版，同年推出配套的《新加坡學前節慶教材》，包含可作為教室佈置的佈景與近百個節慶元素，供教師講故事、進行角色扮演與語文遊戲。2017 年出版《新加坡學前節慶教案與評量》，以泰勒的目標模式為出發點，為每個教案加上評量建議；同年推出《幼兒互動手作本》上下冊，讓幼兒在可重複使用的節慶場景與 3D 手作中體驗節日。2018 年再出版英文版。"
+   "《來！來過節》是鄭博士主導開發的一整套學前節慶教學資源，涵蓋新加坡各族群的十三個節日，從教案、評量、教材到幼兒手作，一應俱全。"
   ],
   "cover": "img/festival-cover.jpg",
   "images": [],
   "youtube": "",
   "xhs": "",
-  "thumb": "img/thumb-festival.jpg"
+  "thumb": "img/thumb-festival.jpg",
+  "set": [
+   {
+    "img": "img/festival-set-1st.jpg",
+    "name": "《新加坡學前節慶教案》（第一版，新加坡彩色特別發行版）",
+    "year": "2016",
+    "isbn": "978-981-09-8925-5",
+    "note": "十三個節日的教案"
+   },
+   {
+    "img": "img/festival-set-1st-tw.jpg",
+    "name": "《新加坡學前節慶教案》（臺北版）",
+    "year": "2016",
+    "isbn": "978-1-62503-279-9",
+    "note": "美商 EHGBooks 微出版公司"
+   },
+   {
+    "img": "",
+    "name": "《新加坡學前節慶教材》",
+    "year": "2016",
+    "isbn": "",
+    "note": "中型佈景六幕、大型佈景四幕，近百個節慶元素"
+   },
+   {
+    "img": "img/festival-cover.jpg",
+    "name": "《新加坡學前節慶教案與評量》",
+    "year": "2017",
+    "isbn": "978-981-11-1765-7",
+    "note": "以泰勒目標模式為每個教案加上評量建議"
+   },
+   {
+    "img": "",
+    "name": "《幼兒互動手作本》上冊",
+    "year": "2017",
+    "isbn": "978-981-11-2847-9",
+    "note": "可重複使用的節慶場景與 3D 手作"
+   },
+   {
+    "img": "",
+    "name": "《幼兒互動手作本》下冊",
+    "year": "2017",
+    "isbn": "978-981-11-2848-6",
+    "note": "可重複使用的節慶場景與 3D 手作"
+   },
+   {
+    "img": "img/festival-en-cover.jpg",
+    "name": "Come, Let's Celebrate!（英文版）",
+    "year": "2018",
+    "isbn": "978-981-11-6243-5",
+    "note": "教案與評量的英文版"
+   }
+  ]
  },
  {
   "id": "festival-en",
@@ -2527,6 +2582,13 @@ function renderDetail(b){
     info.append(v);
   }
   grid.append(cov,info); d.append(grid);
+  if(b.set){
+    d.append(el('h3',null,'整套內容'));
+    const t=el('table','settable'); const th=el('tr'); ['封面','品項','年份','ISBN','內容'].forEach(h=>th.append(el('th',null,h))); t.append(th);
+    b.set.forEach(r=>{const tr=el('tr'); const c=el('td','sc'); if(r.img){const im=new Image(); im.src=r.img; im.alt=r.name; im.loading='lazy'; c.append(im);} else c.append(el('span','noimg','—'));
+      tr.append(c, el('td','sn',r.name), el('td','sy',r.year), el('td','si',r.isbn||'—'), el('td','so',r.note)); t.append(tr);});
+    const w=el('div','setwrap'); w.append(t); d.append(w);
+  }
   if(b.images.length){
     d.append(el('h3',null,'書中圖畫'));
     const g=el('div','gallery'); b.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=b.title+' 內頁'; g.append(im);}); d.append(g);
