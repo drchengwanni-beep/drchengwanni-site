@@ -1898,7 +1898,8 @@ const BOOKS = [
     "https://www.youtube.com/watch?v=4D3c3cUo5mY"
    ]
   ],
-  "thumb": "img/thumb-guide5e.jpg"
+  "thumb": "img/thumb-guide5e.jpg",
+  "last": true
  },
  {
   "id": "festival",
@@ -2620,7 +2621,7 @@ function el(tag, cls, text){const e=document.createElement(tag); if(cls) e.class
 function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     const yr=b=>{const m=String(b.kind||'').match(/(19|20)\d\d/g); return m?Math.max(...m.map(Number)):-1;};
-    BOOKS.filter(b=>b.group===shelf.dataset.group && !b.hidden).map((b,i)=>[b,i]).sort((x,y)=>(y[0].wide?1:0)-(x[0].wide?1:0) || yr(y[0])-yr(x[0]) || x[1]-y[1]).map(x=>x[0]).forEach(b=>{
+    BOOKS.filter(b=>b.group===shelf.dataset.group && !b.hidden).map((b,i)=>[b,i]).sort((x,y)=>(y[0].wide?1:0)-(x[0].wide?1:0) || (x[0].last?1:0)-(y[0].last?1:0) || yr(y[0])-yr(x[0]) || x[1]-y[1]).map(x=>x[0]).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
       if(b.wide){ const box=el('div','book hascov wide'); const cv=el('span','wcovs');
        (b.wideLinks||[[b.thumb||b.cover,b.id]]).forEach(([src,id])=>{const l=el('a','bcov'); l.href='#book-'+id; const bk=BOOKS.find(x=>x.id===id); l.title=bk?bk.title:''; l.setAttribute('aria-label',bk?bk.title:''); const im=new Image(); im.src=src; im.alt=''; im.loading='lazy'; l.append(im); cv.append(l);});
