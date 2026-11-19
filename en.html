@@ -1904,7 +1904,12 @@ const BOOKS = [
    "Come, Let’s Celebrate! is a full set of preschool festival-teaching resources developed under Dr Cheng’s lead, covering thirteen festivals of Singapore’s communities, from lesson plans and assessment to a teaching kit and children’s craft books."
   ],
   "cover": "img/festival-cover.jpg",
-  "images": [],
+  "images": [
+   "img/festival-kit-sea.jpg",
+   "img/festival-kit-kopitiam.jpg",
+   "img/festival-kit-living.jpg",
+   "img/festival-kit-dolls.jpg"
+  ],
   "youtube": "",
   "xhs": "",
   "thumb": "img/thumb-festival.jpg",
@@ -1924,7 +1929,7 @@ const BOOKS = [
     "note": "EHGBooks, Taipei"
    },
    {
-    "img": "https://www.sccl.sg/images/com_hikashop/upload/20160520161639_come_celeb_bag.png",
+    "img": "img/festival-kit-kopitiam.jpg",
     "name": "Festival teaching kit",
     "year": "2016",
     "isbn": "",
@@ -1967,7 +1972,8 @@ const BOOKS = [
    "id": "ledmuzyse-pp",
    "poster": "https://0901.static.prezi.com/preview/v2/6ztgg4pjxkc6kavnzafm3v5yjd6jc3sachvcdoaizecfr3dnitcq_3_0.png",
    "caption": "Come, Let’s Celebrate! launch presentation: Dr Cheng introduces the teaching elements of the thirteen festivals and how the materials were designed and made (Prezi, with embedded videos)"
-  }
+  },
+  "galleryTitle": "Festival teaching kit: backdrops and figures (selection)"
  },
  {
   "id": "festival-en",
@@ -2621,7 +2627,7 @@ function renderDetail(b){
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);
   }
   if(b.images.length){
-    d.append(el('h3',null,'Inside the book'));
+    d.append(el('h3',null,b.galleryTitle||'Inside the book'));
     const g=el('div','gallery'); b.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=b.title+' inside spread'; g.append(im);}); d.append(g);
   }
 }

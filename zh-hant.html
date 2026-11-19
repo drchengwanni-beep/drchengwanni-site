@@ -1903,7 +1903,12 @@ const BOOKS = [
    "《來！來過節》是鄭博士主導開發的一整套學前節慶教學資源，涵蓋新加坡各族群的十三個節日，從教案、評量、教材到幼兒手作，一應俱全。"
   ],
   "cover": "img/festival-cover.jpg",
-  "images": [],
+  "images": [
+   "img/festival-kit-sea.jpg",
+   "img/festival-kit-kopitiam.jpg",
+   "img/festival-kit-living.jpg",
+   "img/festival-kit-dolls.jpg"
+  ],
   "youtube": "",
   "xhs": "",
   "thumb": "img/thumb-festival.jpg",
@@ -1923,7 +1928,7 @@ const BOOKS = [
     "note": "美商 EHGBooks 微出版公司"
    },
    {
-    "img": "https://www.sccl.sg/images/com_hikashop/upload/20160520161639_come_celeb_bag.png",
+    "img": "img/festival-kit-kopitiam.jpg",
     "name": "《新加坡學前節慶教材》",
     "year": "2016",
     "isbn": "",
@@ -1966,7 +1971,8 @@ const BOOKS = [
    "id": "ledmuzyse-pp",
    "poster": "https://0901.static.prezi.com/preview/v2/6ztgg4pjxkc6kavnzafm3v5yjd6jc3sachvcdoaizecfr3dnitcq_3_0.png",
    "caption": "《來！來過節》發布會簡報：鄭博士介紹十三個節日的教學元素、教材的設計與製作方式（Prezi，內含影片）"
-  }
+  },
+  "galleryTitle": "節慶教材：佈景與人偶（部分）"
  },
  {
   "id": "festival-en",
@@ -2620,7 +2626,7 @@ function renderDetail(b){
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);
   }
   if(b.images.length){
-    d.append(el('h3',null,'書中圖畫'));
+    d.append(el('h3',null,b.galleryTitle||'書中圖畫'));
     const g=el('div','gallery'); b.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=b.title+' 內頁'; g.append(im);}); d.append(g);
   }
 }

@@ -1903,7 +1903,12 @@ const BOOKS = [
    "《来！来过节》是郑博士主导开发的一整套学前节庆教学资源，涵盖新加坡各族群的十三个节日，从教案、评量、教材到幼儿手作，一应俱全。"
   ],
   "cover": "img/festival-cover.jpg",
-  "images": [],
+  "images": [
+   "img/festival-kit-sea.jpg",
+   "img/festival-kit-kopitiam.jpg",
+   "img/festival-kit-living.jpg",
+   "img/festival-kit-dolls.jpg"
+  ],
   "youtube": "",
   "xhs": "",
   "thumb": "img/thumb-festival.jpg",
@@ -1923,7 +1928,7 @@ const BOOKS = [
     "note": "美商 EHGBooks 微出版公司"
    },
    {
-    "img": "https://www.sccl.sg/images/com_hikashop/upload/20160520161639_come_celeb_bag.png",
+    "img": "img/festival-kit-kopitiam.jpg",
     "name": "《新加坡学前节庆教材》",
     "year": "2016",
     "isbn": "",
@@ -1966,7 +1971,8 @@ const BOOKS = [
    "id": "ledmuzyse-pp",
    "poster": "https://0901.static.prezi.com/preview/v2/6ztgg4pjxkc6kavnzafm3v5yjd6jc3sachvcdoaizecfr3dnitcq_3_0.png",
    "caption": "《来！来过节》发布会简报：郑博士介绍十三个节日的教学元素、教材的设计与制作方式（Prezi，内含影片）"
-  }
+  },
+  "galleryTitle": "节庆教材：布景与人偶（部分）"
  },
  {
   "id": "festival-en",
@@ -2620,7 +2626,7 @@ function renderDetail(b){
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);
   }
   if(b.images.length){
-    d.append(el('h3',null,'书中图画'));
+    d.append(el('h3',null,b.galleryTitle||'书中图画'));
     const g=el('div','gallery'); b.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=b.title+' 内页'; g.append(im);}); d.append(g);
   }
 }
