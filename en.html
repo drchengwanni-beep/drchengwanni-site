@@ -402,6 +402,7 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .book.wide.split .wpart+.wpart{border-left:1px dashed var(--line)}
 .book.wide.split .wpart:hover h4{color:var(--accent)}
 @media (max-width:760px){.book.wide.split{grid-template-columns:1fr}.book.wide.split .wpart+.wpart{border-left:0;border-top:1px dashed var(--line)}.book.wide.split .wpart{padding:18px;gap:16px}.book.wide h4{font-size:17px}.book.wide .wtxt p{font-size:14px;line-height:1.7}.book.wide .bcov{width:72px;height:72px}}
+.book.wide .wtxt{text-decoration:none;color:inherit}.book.wide a.bcov{display:block;transition:transform .2s}.book.wide a.bcov:hover{transform:scale(1.06)}.book.wide .wtxt:hover h4{color:var(--accent)}
 </style>
 <style>:root{--display:"Newsreader",Georgia,serif}.hero .en,.sechead span,.pillar h3 small{display:none}.dgrid .en{font-family:var(--body);font-style:normal}</style>
 </head>
@@ -2021,9 +2022,15 @@ const BOOKS = [
    }
   ],
   "wide": true,
-  "wideThumbs": [
-   "img/thumb-festival.jpg",
-   "img/thumb-festival-en.jpg"
+  "wideLinks": [
+   [
+    "img/thumb-festival.jpg",
+    "festival"
+   ],
+   [
+    "img/thumb-festival-en.jpg",
+    "festival-en"
+   ]
   ]
  },
  {
@@ -2612,7 +2619,9 @@ function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group && !b.hidden).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
-      if(b.wide){ a.className='book hascov wide'; const cv=el('span','wcovs'); (b.wideThumbs||[b.thumb||b.cover]).forEach(src=>{const c1=el('span','bcov'); const im=new Image(); im.src=src; im.alt=''; im.loading='lazy'; c1.append(im); cv.append(c1);}); const tx=el('div','wtxt'); tx.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief)); a.append(cv,tx); shelf.append(a); return; }
+      if(b.wide){ const box=el('div','book hascov wide'); const cv=el('span','wcovs');
+       (b.wideLinks||[[b.thumb||b.cover,b.id]]).forEach(([src,id])=>{const l=el('a','bcov'); l.href='#book-'+id; const bk=BOOKS.find(x=>x.id===id); l.title=bk?bk.title:''; l.setAttribute('aria-label',bk?bk.title:''); const im=new Image(); im.src=src; im.alt=''; im.loading='lazy'; l.append(im); cv.append(l);});
+        const tx=el('a','wtxt'); tx.href='#book-'+b.id; tx.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief)); box.append(cv,tx); shelf.append(box); return; }
       a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
      (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
