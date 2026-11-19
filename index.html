@@ -2,6 +2,7 @@
 <html lang="zh-Hans">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>郑婉妮博士 Dr Cheng Wan-ni｜新加坡幼小华文阅读与儿童发展专家</title>
 <meta name="description" content="郑婉妮博士（鄭婉妮，Dr Cheng Wan-ni / Cheng Wanni），南洋理工大学新加坡华文教研中心学前部主任兼高级讲师，幼儿教育与儿童文学专家，三十年幼教经验，出版三十余本绘本、教学专书与大学教材，提出“阅读生态系”，首创沉浸式游戏亲子故事说演。">
@@ -846,7 +847,7 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
           <p class="svccase"><b>合作案例</b>　5E 绘本系列由李光耀双语基金支持出版，共六册；2023 年 5 月新书发布会由新加坡华文教研中心董事主席、前教育总司长何品女士担任主宾。</p>
           <p class="svclinks"><a class="invite" target="_blank" rel="noopener" href="mailto:drchengwanni@gmail.com?subject=%E7%BB%98%E6%9C%AC%E5%87%BA%E7%89%88%E5%90%88%E4%BD%9C">洽谈绘本出版合作 →</a>　<a class="invite" href="#books">看著作 →</a></p>
         </div>
-        <div style="display:flex;flex-direction:column;gap:18px"><figure class="svcphoto"><img src="img/press/2024-05-hidelove-launch.jpg" alt="孙雪玲政务部长共读《把爱藏起来》" loading="lazy"><figcaption>2024.05　社会及家庭发展部兼内政部政务部长孙雪玲在发布会上为孩子们共读《把爱藏起来》（图：新加坡华文教研中心）</figcaption></figure><figure class="svcphoto"><div class="ytlite" role="button" tabindex="0" aria-label="播放影片" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/4D3c3cUo5mY?autoplay=1&quot; title=&quot;5E 绘本系列新书发布会&quot; allow=&quot;autoplay; encrypted-media; picture-in-picture&quot; allowfullscreen style=&quot;width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block&quot;></iframe>'"><img src="img/press/2023-05-hopeng.jpg" style="aspect-ratio:16/9" alt="何品女士在 5E 绘本系列新书发布会上致辞" loading="lazy"><span class="ytplay" aria-hidden="true"></span></div><figcaption>2023.05　5E 绘本系列新书发布会影片：主宾、新加坡华文教研中心董事主席何品女士致辞（影片：新加坡华文教研中心幼师会客室）</figcaption></figure></div>
+        <div style="display:flex;flex-direction:column;gap:18px"><figure class="svcphoto"><img src="img/press/2024-05-hidelove-launch.jpg" alt="孙雪玲政务部长共读《把爱藏起来》" loading="lazy"><figcaption>2024.05　社会及家庭发展部兼内政部政务部长孙雪玲在发布会上为孩子们共读《把爱藏起来》（图：新加坡华文教研中心）</figcaption></figure><figure class="svcphoto"><div class="ytlite" role="button" tabindex="0" aria-label="播放影片" onclick="this.outerHTML='<iframe src=&quot;https://www.youtube-nocookie.com/embed/4D3c3cUo5mY?autoplay=1&quot; title=&quot;5E 绘本系列新书发布会&quot; allow=&quot;autoplay; encrypted-media; picture-in-picture&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen style=&quot;width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block&quot;></iframe>'"><img src="img/press/2023-05-hopeng.jpg" style="aspect-ratio:16/9" alt="何品女士在 5E 绘本系列新书发布会上致辞" loading="lazy"><span class="ytplay" aria-hidden="true"></span></div><figcaption>2023.05　5E 绘本系列新书发布会影片：主宾、新加坡华文教研中心董事主席何品女士致辞（影片：新加坡华文教研中心幼师会客室）</figcaption></figure></div>
       </div>
       <div class="svc courses" id="courses">
         <div>
@@ -2598,9 +2599,10 @@ function renderDetail(b){
     const f=el('figure','setvideo'); const v=el('div','ytlite'); v.setAttribute('role','button'); v.tabIndex=0; v.setAttribute('aria-label','播放影片');
     const im=new Image(); im.src='https://i.ytimg.com/vi/'+b.video.id+'/hqdefault.jpg'; im.alt=b.video.caption; im.style.aspectRatio='16/9'; im.loading='lazy';
     v.append(im, el('span','ytplay'));
-    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://www.youtube-nocookie.com/embed/'+b.video.id+'?autoplay=1'; fr.title=b.video.caption; fr.allow='autoplay; encrypted-media; picture-in-picture'; fr.allowFullscreen=true; fr.style.cssText='width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block'; v.replaceWith(fr);};
+    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://www.youtube-nocookie.com/embed/'+b.video.id+'?autoplay=1'; fr.title=b.video.caption; fr.allow='autoplay; encrypted-media; picture-in-picture'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block'; v.replaceWith(fr);};
     v.addEventListener('click',play); v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
-    f.append(v, el('figcaption',null,b.video.caption)); d.append(f);
+    const lk=el('a','vbtn','在 YouTube 观看 ↗'); lk.href='https://www.youtube.com/watch?v='+b.video.id; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
+    f.append(v, el('figcaption',null,b.video.caption), lw); d.append(f);
   }
   if(b.images.length){
     d.append(el('h3',null,'书中图画'));
