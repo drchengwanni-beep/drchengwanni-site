@@ -1903,7 +1903,8 @@ const BOOKS = [
    ]
   ],
   "intro": [
-   "《來！來過節》是鄭博士主導開發的一整套學前節慶教學資源，涵蓋新加坡各族群的十三個節日，從教案、評量、教材到幼兒手作，一應俱全。"
+   "《來！來過節》是鄭博士主導開發的一套學前節慶課程資源。2015 年鄭博士來到新加坡，隨即察覺多元族群的節慶與幼兒華文課堂之間存在落差：許多教師並不熟悉其他族群的文化，備課時缺乏可以依循的資料。這套資源於 2015 年底完成、2016 年正式發布，可視為新加坡華文教研中心推動教師跨文化適應與在地化的第一步。",
+   "開發團隊將十三個節日的教學元素抽取出來，讓教師設計活動時有所依據：知道節日的由來，知道可以搭配哪些手作，知道教案可以往哪些方向延伸，也知道如何評量。十多年前，網絡資源有限，更沒有人工智能可以協助，對不熟悉這些文化的教師而言，自行準備節慶教學相當吃力；《來！來過節》正是為此所做的嘗試。"
   ],
   "cover": "img/festival-cover.jpg",
   "images": [],
@@ -2647,7 +2648,7 @@ function renderDetail(b){
     const im=new Image(); im.src=b.prezi.poster; im.alt=b.prezi.caption; im.style.aspectRatio='16/9'; im.style.background='#fff'; im.style.objectFit='contain'; im.loading='lazy';
     v.append(im, el('span','ytplay'));
     const url='https://prezi.com/'+b.prezi.id+'/';
-    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://prezi.com/embed/'+b.prezi.id+'/?bgcolor=ffffff&lock_to_path=0&autoplay=0&autohide_ctrls=0'; fr.title=b.prezi.caption; fr.allow='autoplay; fullscreen'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/10;border:0;border-radius:8px;display:block;background:#fff'; v.replaceWith(fr);};
+    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://prezi.com/p/'+b.prezi.id+'/embed/'; fr.title=b.prezi.caption; fr.allow='autoplay; fullscreen'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/10;border:0;border-radius:8px;display:block;background:#fff'; v.replaceWith(fr);};
     v.addEventListener('click',play); v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
     const lk=el('a','vbtn','在 Prezi 觀看 ↗'); lk.href=url; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);

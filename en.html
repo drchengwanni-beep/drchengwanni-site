@@ -1904,7 +1904,8 @@ const BOOKS = [
    ]
   ],
   "intro": [
-   "Come, Let’s Celebrate! is a full set of preschool festival-teaching resources developed under Dr Cheng’s lead, covering thirteen festivals of Singapore’s communities, from lesson plans and assessment to a teaching kit and children’s craft books."
+   "Come, Let’s Celebrate! is a preschool festival curriculum resource developed under Dr Cheng’s lead. Soon after arriving in Singapore in 2015, she noticed a gap between the festivals of Singapore’s many communities and the preschool Chinese classroom: many teachers were unfamiliar with other communities’ cultures and had little to draw on when planning lessons. Completed at the end of 2015 and launched in 2016, the set can be seen as the Singapore Centre for Chinese Language’s first step in supporting teachers’ cross-cultural adaptation and localisation.",
+   "The team distilled the teaching elements of thirteen festivals so that teachers could plan with a clear basis: the origins of each festival, crafts to go with it, directions a lesson plan could take, and ways to assess learning. More than a decade ago, online resources were limited and there was no AI to help; for teachers unfamiliar with these cultures, preparing festival lessons on their own was hard work. Come, Let’s Celebrate! was an attempt to meet that need."
   ],
   "cover": "img/festival-cover.jpg",
   "images": [],
@@ -2648,7 +2649,7 @@ function renderDetail(b){
     const im=new Image(); im.src=b.prezi.poster; im.alt=b.prezi.caption; im.style.aspectRatio='16/9'; im.style.background='#fff'; im.style.objectFit='contain'; im.loading='lazy';
     v.append(im, el('span','ytplay'));
     const url='https://prezi.com/'+b.prezi.id+'/';
-    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://prezi.com/embed/'+b.prezi.id+'/?bgcolor=ffffff&lock_to_path=0&autoplay=0&autohide_ctrls=0'; fr.title=b.prezi.caption; fr.allow='autoplay; fullscreen'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/10;border:0;border-radius:8px;display:block;background:#fff'; v.replaceWith(fr);};
+    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://prezi.com/p/'+b.prezi.id+'/embed/'; fr.title=b.prezi.caption; fr.allow='autoplay; fullscreen'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/10;border:0;border-radius:8px;display:block;background:#fff'; v.replaceWith(fr);};
     v.addEventListener('click',play); v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
     const lk=el('a','vbtn','View on Prezi ↗'); lk.href=url; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);

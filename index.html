@@ -1903,7 +1903,8 @@ const BOOKS = [
    ]
   ],
   "intro": [
-   "《来！来过节》是郑博士主导开发的一整套学前节庆教学资源，涵盖新加坡各族群的十三个节日，从教案、评量、教材到幼儿手作，一应俱全。"
+   "《来！来过节》是郑博士主导开发的一套学前节庆课程资源。2015 年郑博士来到新加坡，随即察觉多元族群的节庆与幼儿华文课堂之间存在落差：许多教师并不熟悉其他族群的文化，备课时缺乏可以依循的资料。这套资源于 2015 年底完成、2016 年正式发布，可视为新加坡华文教研中心推动教师跨文化适应与在地化的第一步。",
+   "开发团队将十三个节日的教学元素抽取出来，让教师设计活动时有所依据：知道节日的由来，知道可以搭配哪些手作，知道教案可以往哪些方向延伸，也知道如何评量。十多年前，网络资源有限，更没有人工智能可以协助，对不熟悉这些文化的教师而言，自行准备节庆教学相当吃力；《来！来过节》正是为此所做的尝试。"
   ],
   "cover": "img/festival-cover.jpg",
   "images": [],
@@ -2647,7 +2648,7 @@ function renderDetail(b){
     const im=new Image(); im.src=b.prezi.poster; im.alt=b.prezi.caption; im.style.aspectRatio='16/9'; im.style.background='#fff'; im.style.objectFit='contain'; im.loading='lazy';
     v.append(im, el('span','ytplay'));
     const url='https://prezi.com/'+b.prezi.id+'/';
-    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://prezi.com/embed/'+b.prezi.id+'/?bgcolor=ffffff&lock_to_path=0&autoplay=0&autohide_ctrls=0'; fr.title=b.prezi.caption; fr.allow='autoplay; fullscreen'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/10;border:0;border-radius:8px;display:block;background:#fff'; v.replaceWith(fr);};
+    const play=()=>{const fr=document.createElement('iframe'); fr.src='https://prezi.com/p/'+b.prezi.id+'/embed/'; fr.title=b.prezi.caption; fr.allow='autoplay; fullscreen'; fr.allowFullscreen=true; fr.referrerPolicy='strict-origin-when-cross-origin'; fr.style.cssText='width:100%;aspect-ratio:16/10;border:0;border-radius:8px;display:block;background:#fff'; v.replaceWith(fr);};
     v.addEventListener('click',play); v.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
     const lk=el('a','vbtn','在 Prezi 观看 ↗'); lk.href=url; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);
