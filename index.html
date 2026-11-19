@@ -393,6 +393,8 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .book.wide h4{font-size:22px}.book.wide .wtxt p{font-size:15.5px;line-height:1.8}
 .book.wide .wtxt{display:flex;flex-direction:column;gap:4px}
 @media (max-width:600px){.book.wide{padding:14px 16px;gap:14px;align-items:flex-start}.book.wide .bcov{width:62px;height:62px}}
+@media (min-width:761px){.shelf.trio[data-group="teaching"]{grid-template-columns:repeat(6,minmax(0,1fr))}.shelf.trio[data-group="teaching"]>.book{grid-column:span 2}.shelf.trio[data-group="teaching"]>.book.wide{grid-column:1/-1}.shelf.trio[data-group="teaching"]>.book:nth-last-child(-n+2){grid-column:span 3}}
+.settable .sn a{color:inherit;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
 </style>
 </head>
 <body>
@@ -1967,7 +1969,8 @@ const BOOKS = [
     "name": "Come, Let's Celebrate!（英文版）",
     "year": "2018",
     "isbn": "978-981-11-6243-5",
-    "note": "教案与评量的英文版"
+    "note": "教案与评量的英文版",
+    "link": "#book-festival-en"
    }
   ],
   "video": {
@@ -2048,7 +2051,8 @@ const BOOKS = [
   "images": [],
   "youtube": "",
   "xhs": "",
-  "thumb": "img/thumb-festival-en.jpg"
+  "thumb": "img/thumb-festival-en.jpg",
+  "hidden": true
  },
  {
   "id": "wanwu",
@@ -2594,7 +2598,7 @@ function el(tag, cls, text){const e=document.createElement(tag); if(cls) e.class
 
 function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
-    BOOKS.filter(b=>b.group===shelf.dataset.group).forEach(b=>{
+    BOOKS.filter(b=>b.group===shelf.dataset.group && !b.hidden).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
       if(b.wide){ a.className='book hascov wide'; const cv=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; cv.append(im); const tx=el('div','wtxt'); tx.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief)); a.append(cv,tx); shelf.append(a); return; }
       a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
@@ -2641,7 +2645,7 @@ function renderDetail(b){
     d.append(el('h3',null,'整套内容'));
     const t=el('table','settable'); const th=el('tr'); ['封面','品项','年份','ISBN','内容'].forEach(h=>th.append(el('th',null,h))); t.append(th);
     b.set.forEach(r=>{const tr=el('tr'); const c=el('td','sc'); if(r.img){const im=new Image(); im.src=r.img; im.alt=r.name; im.loading='lazy'; c.append(im);} else c.append(el('span','noimg','—'));
-      tr.append(c, el('td','sn',r.name), el('td','sy',r.year), el('td','si',r.isbn||'—'), el('td','so',r.note)); t.append(tr);});
+      const nm=el('td','sn'); if(r.link){const l=el('a',null,r.name); l.href=r.link; nm.append(l);} else nm.textContent=r.name; tr.append(c, nm, el('td','sy',r.year), el('td','si',r.isbn||'—'), el('td','so',r.note)); t.append(tr);});
     const w=el('div','setwrap'); w.append(t); d.append(w);
   }
   if(b.video){
