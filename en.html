@@ -383,6 +383,9 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .settable .so{font-size:13px;margin-top:2px}
 }
 .setvideo{max-width:720px;margin:0 0 32px}.setvideo figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+@media (min-width:700px){.gallery.three{grid-template-columns:repeat(3,1fr)}}
+.gallery.wide{grid-template-columns:1fr;margin-top:12px}.gallery.wide img{border:0}
+#detail h3 + .gallery{margin-top:12px}
 </style>
 <style>:root{--display:"Newsreader",Georgia,serif}.hero .en,.sechead span,.pillar h3 small{display:none}.dgrid .en{font-family:var(--body);font-style:normal}</style>
 </head>
@@ -1904,12 +1907,7 @@ const BOOKS = [
    "Come, Let’s Celebrate! is a full set of preschool festival-teaching resources developed under Dr Cheng’s lead, covering thirteen festivals of Singapore’s communities, from lesson plans and assessment to a teaching kit and children’s craft books."
   ],
   "cover": "img/festival-cover.jpg",
-  "images": [
-   "img/festival-kit-sea.jpg",
-   "img/festival-kit-kopitiam.jpg",
-   "img/festival-kit-living.jpg",
-   "img/festival-kit-dolls.jpg"
-  ],
+  "images": [],
   "youtube": "",
   "xhs": "",
   "thumb": "img/thumb-festival.jpg",
@@ -1973,7 +1971,36 @@ const BOOKS = [
    "poster": "https://0901.static.prezi.com/preview/v2/6ztgg4pjxkc6kavnzafm3v5yjd6jc3sachvcdoaizecfr3dnitcq_3_0.png",
    "caption": "Come, Let’s Celebrate! launch presentation: Dr Cheng introduces the teaching elements of the thirteen festivals and how the materials were designed and made (Prezi, with embedded videos)"
   },
-  "galleryTitle": "Festival teaching kit: backdrops and figures (selection)"
+  "galleries": [
+   {
+    "title": "Festival teaching kit: festival backdrops",
+    "images": [
+     "img/festival-scene-1.jpg",
+     "img/festival-scene-2.jpg",
+     "img/festival-scene-3.jpg",
+     "img/festival-scene-4.jpg",
+     "img/festival-scene-5.jpg",
+     "img/festival-scene-6.jpg"
+    ],
+    "cols": 3
+   },
+   {
+    "title": "Festival teaching kit: everyday scenes and figures",
+    "images": [
+     "img/festival-kit-sea.jpg",
+     "img/festival-kit-kopitiam.jpg",
+     "img/festival-kit-living.jpg",
+     "img/festival-kit-dolls.jpg"
+    ]
+   },
+   {
+    "title": "Festival teaching kit: some of the nearly 100 festival elements",
+    "images": [
+     "img/festival-elements.jpg"
+    ],
+    "wide": true
+   }
+  ]
  },
  {
   "id": "festival-en",
@@ -2626,6 +2653,10 @@ function renderDetail(b){
     const lk=el('a','vbtn','View on Prezi ↗'); lk.href=url; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);
   }
+ (b.galleries||[]).forEach(g=>{
+    d.append(el('h3',null,g.title));
+    const gw=el('div','gallery'+(g.wide?' wide':'')+(g.cols===3?' three':'')); g.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=g.title; im.loading='lazy'; gw.append(im);}); d.append(gw);
+  });
   if(b.images.length){
     d.append(el('h3',null,b.galleryTitle||'Inside the book'));
     const g=el('div','gallery'); b.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=b.title+' inside spread'; g.append(im);}); d.append(g);

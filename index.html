@@ -383,6 +383,9 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 .settable .so{font-size:13px;margin-top:2px}
 }
 .setvideo{max-width:720px;margin:0 0 32px}.setvideo figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;line-height:1.6}
+@media (min-width:700px){.gallery.three{grid-template-columns:repeat(3,1fr)}}
+.gallery.wide{grid-template-columns:1fr;margin-top:12px}.gallery.wide img{border:0}
+#detail h3 + .gallery{margin-top:12px}
 </style>
 </head>
 <body>
@@ -1903,12 +1906,7 @@ const BOOKS = [
    "《来！来过节》是郑博士主导开发的一整套学前节庆教学资源，涵盖新加坡各族群的十三个节日，从教案、评量、教材到幼儿手作，一应俱全。"
   ],
   "cover": "img/festival-cover.jpg",
-  "images": [
-   "img/festival-kit-sea.jpg",
-   "img/festival-kit-kopitiam.jpg",
-   "img/festival-kit-living.jpg",
-   "img/festival-kit-dolls.jpg"
-  ],
+  "images": [],
   "youtube": "",
   "xhs": "",
   "thumb": "img/thumb-festival.jpg",
@@ -1972,7 +1970,36 @@ const BOOKS = [
    "poster": "https://0901.static.prezi.com/preview/v2/6ztgg4pjxkc6kavnzafm3v5yjd6jc3sachvcdoaizecfr3dnitcq_3_0.png",
    "caption": "《来！来过节》发布会简报：郑博士介绍十三个节日的教学元素、教材的设计与制作方式（Prezi，内含影片）"
   },
-  "galleryTitle": "节庆教材：布景与人偶（部分）"
+  "galleries": [
+   {
+    "title": "节庆教材：节庆场景布景",
+    "images": [
+     "img/festival-scene-1.jpg",
+     "img/festival-scene-2.jpg",
+     "img/festival-scene-3.jpg",
+     "img/festival-scene-4.jpg",
+     "img/festival-scene-5.jpg",
+     "img/festival-scene-6.jpg"
+    ],
+    "cols": 3
+   },
+   {
+    "title": "节庆教材：生活情境布景与人偶",
+    "images": [
+     "img/festival-kit-sea.jpg",
+     "img/festival-kit-kopitiam.jpg",
+     "img/festival-kit-living.jpg",
+     "img/festival-kit-dolls.jpg"
+    ]
+   },
+   {
+    "title": "节庆教材：近百个节庆元素（部分）",
+    "images": [
+     "img/festival-elements.jpg"
+    ],
+    "wide": true
+   }
+  ]
  },
  {
   "id": "festival-en",
@@ -2625,6 +2652,10 @@ function renderDetail(b){
     const lk=el('a','vbtn','在 Prezi 观看 ↗'); lk.href=url; lk.target='_blank'; lk.rel='noopener'; const lw=el('div','videos'); lw.style.marginTop='10px'; lw.append(lk);
     f.append(v, el('figcaption',null,b.prezi.caption), lw); d.append(f);
   }
+  (b.galleries||[]).forEach(g=>{
+    d.append(el('h3',null,g.title));
+    const gw=el('div','gallery'+(g.wide?' wide':'')+(g.cols===3?' three':'')); g.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=g.title; im.loading='lazy'; gw.append(im);}); d.append(gw);
+  });
   if(b.images.length){
     d.append(el('h3',null,b.galleryTitle||'书中图画'));
     const g=el('div','gallery'); b.images.forEach(src=>{const im=new Image(); im.src=src; im.alt=b.title+' 内页'; g.append(im);}); d.append(g);
