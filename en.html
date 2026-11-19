@@ -2504,7 +2504,7 @@ renderShelves(); route(); window.addEventListener('hashchange', route);
     var T=+b.dataset.target, suf=b.dataset.suffix, c=b.dataset.comma;
     if(!T&&T!==0) return;
     if(reduce){b.textContent=fmt(T,c)+suf;return;}
-    var start=null, dur=T>1000?2200:1400;
+    var start=null, dur=T>1000?4500:3000;
     function step(ts){ if(!start) start=ts; var p=Math.min(1,(ts-start)/dur), e=1-Math.pow(1-p,3);
       b.textContent=fmt(T*e,c)+suf; if(p<1) requestAnimationFrame(step); }
     requestAnimationFrame(step);
