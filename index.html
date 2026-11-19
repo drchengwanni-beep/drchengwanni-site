@@ -386,6 +386,27 @@ nav{backdrop-filter:saturate(1.2) blur(6px);background:color-mix(in srgb,var(--p
 @media (min-width:700px){.gallery.three{grid-template-columns:repeat(3,1fr)}}
 .gallery.wide{grid-template-columns:1fr;margin-top:12px}.gallery.wide img{border:0}
 #detail h3 + .gallery{margin-top:12px}
+
+.book.featured{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:28px;align-items:center;padding:28px 30px;border-style:solid;border-top:4px solid var(--ochre)}
+.book.featured h4{font-size:24px;margin:2px 0 0}
+.book.featured .fen{font-style:italic;color:var(--muted);margin:0;font-size:14.5px}
+.book.featured .flead{margin:10px 0 0;line-height:1.85;color:var(--ink);max-width:36em}
+.fstats{list-style:none;display:flex;gap:26px;margin:16px 0 4px;padding:0}
+.fstats b{display:block;font-family:var(--display);font-size:28px;color:var(--accent);line-height:1.1}
+.fstats span{font-size:13px;color:var(--muted)}
+.fcta{margin-top:12px;align-self:start;font-size:14px;color:var(--accent);border-bottom:1px solid currentColor;padding-bottom:1px}
+.ftxt{display:flex;flex-direction:column}
+.fvis{display:flex;flex-direction:column;gap:14px}
+.fcovers{display:flex;justify-content:center;padding:14px 0 6px}
+.fcovers img{width:20%;aspect-ratio:7/10;object-fit:cover;border-radius:4px;box-shadow:0 6px 16px -6px rgba(38,45,41,.45);margin-left:-1.5%;transform:rotate(calc((var(--i) - 2) * 3deg)) translateY(calc(var(--i) * 0px));background:#fff}
+.fcovers img:first-child{margin-left:0}
+.fscenes{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fscenes img{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:6px;border:1px solid var(--line)}
+.book.featured:hover .fcovers img{transform:rotate(calc((var(--i) - 2) * 4deg)) translateY(-3px)}
+.fcovers img{transition:transform .25s}
+@media (prefers-reduced-motion:reduce){.fcovers img{transition:none}}
+@media (max-width:820px){.book.featured{grid-template-columns:1fr;padding:22px 20px;gap:18px}.book.featured .fvis{order:-1}}
+@media (max-width:600px){.book.featured{padding:20px 18px}.book.featured h4{font-size:20px}.fstats{gap:18px}.fstats b{font-size:24px}}
 </style>
 </head>
 <body>
@@ -2000,7 +2021,37 @@ const BOOKS = [
     ],
     "wide": true
    }
-  ]
+  ],
+  "feature": {
+   "lead": "郑博士 2015 年来到新加坡后主导开发，2015 年底完成、2016 年发布。将十三个节日的教学元素抽取出来，从教案、评量、教材到幼儿手作，为不熟悉各族文化的教师提供可以依循的节庆教学资源。",
+   "stats": [
+    [
+     "13",
+     "个节日"
+    ],
+    [
+     "7",
+     "种出版品"
+    ],
+    [
+     "近百",
+     "个节庆元素"
+    ]
+   ],
+   "covers": [
+    "img/festival-set-1st.jpg",
+    "img/festival-cover.jpg",
+    "img/festival-set-artA.jpg",
+    "img/festival-set-artB.jpg",
+    "img/festival-en-cover.jpg"
+   ],
+   "scenes": [
+    "img/festival-scene-1.jpg",
+    "img/festival-kit-kopitiam.jpg",
+    "img/festival-scene-4.jpg"
+   ],
+   "cta": "看整套内容"
+  }
  },
  {
   "id": "festival-en",
@@ -2587,6 +2638,12 @@ function renderShelves(){
   document.querySelectorAll('.shelf[data-group]').forEach(shelf=>{
     BOOKS.filter(b=>b.group===shelf.dataset.group).forEach(b=>{
       const a=el('a','book'); a.href='#book-'+b.id;
+      if(b.feature){ a.className='book featured'; const F=b.feature;
+        const txt=el('div','ftxt'); txt.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p','fen',b.en||''), el('p','flead',F.lead));
+        const st=el('ul','fstats'); F.stats.forEach(([n,l])=>{const li=el('li'); li.append(el('b',null,n), el('span',null,l)); st.append(li);}); txt.append(st, el('span','fcta',F.cta));
+        const vis=el('div','fvis'); const cv=el('div','fcovers'); F.covers.forEach((src,i)=>{const im=new Image(); im.src=src; im.alt=''; im.loading='lazy'; im.style.setProperty('--i',i); cv.append(im);});
+        const sc=el('div','fscenes'); F.scenes.forEach(src=>{const im=new Image(); im.src=src; im.alt=''; im.loading='lazy'; sc.append(im);});
+        vis.append(cv,sc); a.append(txt,vis); shelf.append(a); return; }
       a.append(kindNode(b,'\u00a0',true), el('h4',null,b.title), el('p',null,b.brief));
       (b.tags||(b.tag?[b.tag]:[])).forEach(t=>a.append(el('span','tag',t)));
       if(b.cover){a.classList.add('hascov'); const c=el('span','bcov'); const im=new Image(); im.src=b.thumb||b.cover; im.alt=''; im.loading='lazy'; if(b.thumb) im.style.objectPosition='center'; c.append(im); a.append(c);}
