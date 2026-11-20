@@ -2644,7 +2644,9 @@ function renderShelves(){
 
 function renderDetail(b){
   const d=document.getElementById('detail'); d.textContent='';
-  const back=el('a','back','← Back to Books'); back.href='#books'; d.append(back);
+  const o=window.__origin; const back=el('a','back',o?o.label:'← Back to Books'); back.href='#books';
+  if(o){back.addEventListener('click',e=>{e.preventDefault(); window.__origin=null; history.pushState(null,'',location.pathname+location.search); route(); requestAnimationFrame(()=>window.scrollTo(0,o.y));});}
+  d.append(back);
   const grid=el('div','dgrid'); const cov=el('div','dcover');
   if(b.cover){const im=new Image(); im.src=b.cover; im.alt=b.title+' cover'; cov.append(im);}
   else{const ph=el('div','ph t'+(BOOKS.indexOf(b)%3), b.title); cov.append(ph);}
@@ -2708,6 +2710,9 @@ function route(){
   if(b){renderDetail(b); home.hidden=true; d.hidden=false; window.scrollTo(0,0);}
   else{home.hidden=false; d.hidden=true; const t=h&&document.getElementById(h); if(t) t.scrollIntoView();}
 }
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#book-"]'); if(!a) return; const home=document.getElementById('home'); if(home.hidden) return;
+  const label=a.closest('.awgrid')?'← Back to Awards':a.closest('.tlscans')?'← Back to Competition Books':a.closest('#books')?'← Back to Books':'← Back';
+  window.__origin={y:window.scrollY,label};},true);
 renderShelves(); route(); window.addEventListener('hashchange', route);
 </script>
 
