@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>留言墙｜《我也要去！》亲子故事说演</title>
+<style>
+@font-face{font-family:NR;src:url(fonts/newsreader-latin-400-italic.woff2);font-style:italic}
+@font-face{font-family:NR;src:url(fonts/newsreader-latin-600-normal.woff2);font-weight:600}
+:root{--cream:#F4EFE4;--navy:#1F2A44;--red:#B03A2E;--line:#E2DACA;--serif:'Noto Serif SC','Noto Serif CJK SC','Songti SC','STSong',serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--cream);color:var(--navy);font-family:var(--serif);overflow:hidden}
+.wrap{display:grid;grid-template-columns:minmax(300px,30vw) 1fr;height:100vh}
+.side{padding:6vh 3vw 5vh 4vw;display:flex;flex-direction:column;border-right:1px solid var(--line)}
+.side h1{font-size:clamp(28px,3.2vw,60px);font-weight:900;line-height:1.15}
+.side .sub{color:var(--red);font-weight:700;font-size:clamp(16px,1.5vw,28px);margin-top:1.4vh;letter-spacing:.04em}
+.side .en{font-family:NR,serif;font-style:italic;font-size:clamp(14px,1.1vw,21px);margin-top:.6vh;opacity:.75}
+.rule{width:70px;height:3px;background:var(--red);margin:3.5vh 0}
+.qr{background:#fff;border:1px solid var(--line);padding:12px;width:min(22vw,40vh);aspect-ratio:1}
+.qr img{width:100%;height:100%;display:block}
+.cta{font-size:clamp(18px,1.7vw,32px);font-weight:700;margin-top:2.4vh;line-height:1.4}
+.cta small{display:block;font-weight:400;font-size:.62em;opacity:.7;margin-top:.4vh}
+.wall{padding:5vh 3vw;overflow:hidden;position:relative}
+.grid{columns:3 300px;column-gap:24px}
+.card{break-inside:avoid;background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);padding:20px 22px 16px;margin:0 0 24px;border-radius:2px}
+.card:nth-child(3n+2){border-top-color:var(--navy)}
+.card:nth-child(3n){border-top-color:#C9A24A}
+.card p{font-size:clamp(18px,1.45vw,28px);line-height:1.55;white-space:pre-wrap;word-break:break-word}
+.card .who{margin-top:12px;font-size:clamp(13px,.95vw,18px);opacity:.65;text-align:right}
+.card.new{animation:pop .9s ease-out}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.97)}to{opacity:1;transform:none}}
+.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(20px,2vw,36px);opacity:.55;text-align:center;line-height:1.6}
+@media (prefers-reduced-motion:reduce){.card.new{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <aside class="side">
+    <h1>谢谢您<br>今天的参与</h1>
+    <div class="sub">《我也要去！》沉浸式游戏亲子故事说演</div>
+    <div class="en">Dr Cheng’s Storytelling and Play for Families</div>
+    <div class="rule"></div>
+    <div class="qr"><img src="img/wall-qr.png" alt="扫码留言"></div>
+    <div class="cta">扫码，留下一句鼓励的话<small>写完几分钟内就会出现在右边</small></div>
+  </aside>
+  <main class="wall">
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty">等待第一句鼓励……<br>扫左边的 QR 码就能留言</div>
+  </main>
+</div>
+<script>
+const CSV='https://docs.google.com/spreadsheets/d/e/2PACX-1vSK6Bl2jE0gqs-G_F5cauTmLH1XAJZUIthiE1sK2u4K0j0OV5r8qc7u0KH5atjh3B6UV9_klFdvDUtr/pub?output=csv';
+const seen=new Set();let first=true;
+function parse(t){const rows=[];let r=[],f='',q=false;for(let i=0;i<t.length;i++){const c=t[i];
+ if(q){if(c=='"'){if(t[i+1]=='"'){f+='"';i++}else q=false}else f+=c}
+ else if(c=='"')q=true;else if(c==','){r.push(f);f=''}else if(c=='\n'){r.push(f);rows.push(r);r=[];f=''}else if(c!='\r')f+=c}
+ if(f||r.length){r.push(f);rows.push(r)}return rows}
+async function load(){
+ try{
+  const res=await fetch(CSV+'&t='+Date.now(),{cache:'no-store'});if(!res.ok)return;
+  const rows=parse(await res.text()).slice(1).filter(r=>r[1]&&r[1].trim());
+  const grid=document.getElementById('grid');
+  rows.forEach(r=>{const key=r.join('|');if(seen.has(key))return;seen.add(key);
+   const card=document.createElement('div');card.className='card'+(first?'':' new');
+   const p=document.createElement('p');p.textContent=r[1].trim().slice(0,300);card.appendChild(p);
+   if(r[2]&&r[2].trim()){const w=document.createElement('div');w.className='who';w.textContent='— '+r[2].trim().slice(0,30);card.appendChild(w)}
+   grid.prepend(card)});
+  first=false;
+  document.getElementById('empty').style.display=rows.length?'none':'flex';
+ }catch(e){}
+}
+load();setInterval(load,8000);
+</script>
+</body>
+</html>
